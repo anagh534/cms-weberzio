@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./Footer.module.css";
 
-const FALLBACK_MENU = [
+const FOOTER_MENU = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" },
@@ -14,19 +14,6 @@ export default function Footer({ siteName = "weberzio" }) {
   const year = new Date().getFullYear();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
-  const [menu, setMenu] = useState(FALLBACK_MENU);
-
-  useEffect(() => {
-    fetch("/api/menus")
-      .then((r) => r.json())
-      .then((data) => {
-        const footer = data.menus?.footer;
-        if (Array.isArray(footer) && footer.length > 0) {
-          setMenu(footer.map((i) => ({ label: i.label, href: i.href })));
-        }
-      })
-      .catch(() => {});
-  }, []);
 
   function handleSubscribe(e) {
     e.preventDefault();
@@ -79,7 +66,7 @@ export default function Footer({ siteName = "weberzio" }) {
         <div className={styles.col}>
           <h3 className={styles.colTitle}>Menu</h3>
           <ul className={styles.socialList}>
-            {menu.map((item) => (
+            {FOOTER_MENU.map((item) => (
               <li key={item.href}>
                 <a href={item.href} className={styles.socialLink}>{item.label}</a>
               </li>

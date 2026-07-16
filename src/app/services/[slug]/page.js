@@ -5,8 +5,9 @@ import ServiceDetail from "@/components/ServiceDetail";
 import Process from "@/components/Process";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { getSiteSettings } from "@/lib/site-data";
 import { SERVICES, getServiceBySlug } from "@/lib/services-data";
+
+const siteName = "weberzio";
 
 export async function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -15,9 +16,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
-  const s = await getSiteSettings();
-  if (!service) return { title: `Service not found — ${s.siteName}` };
-  const title = `${service.title} — ${s.siteName}`;
+  if (!service) return { title: `Service not found — ${siteName}` };
+  const title = `${service.title} — ${siteName}`;
   return {
     title,
     description: service.description,
@@ -38,8 +38,6 @@ export default async function ServiceSlugPage({ params }) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
-  const settings = await getSiteSettings();
-
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -55,13 +53,13 @@ export default async function ServiceSlugPage({ params }) {
     "@type": "Service",
     name: service.title,
     description: service.description,
-    provider: { "@type": "Organization", name: settings.siteName },
+    provider: { "@type": "Organization", name: siteName },
     ...(service.tags && { serviceType: service.tags.join(", ") }),
   };
 
   return (
     <>
-      <Header siteName={settings.siteName} logoUrl={settings.logoUrl} />
+      <Header />
       <main>
         <PageHero
           eyebrow="Services"
@@ -72,7 +70,7 @@ export default async function ServiceSlugPage({ params }) {
         <ServiceDetail service={service} />
         <Process />
       </main>
-      <Footer siteName={settings.siteName} />
+      <Footer />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={serviceLd} />
     </>

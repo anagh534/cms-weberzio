@@ -4,30 +4,21 @@ import PageHero from "@/components/PageHero";
 import CaseStudyDetail from "@/components/CaseStudyDetail";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { connectDB } from "@/lib/db";
-import Product from "@/models/Product";
-import { getSiteSettings } from "@/lib/site-data";
+import { CASE_STUDIES, getCaseStudyBySlug } from "@/lib/work-data";
 
-async function getCaseStudy(slug) {
-  try {
-    await connectDB();
-    const doc = await Product.findOne({ slug }).lean();
-    if (!doc) return null;
-    return JSON.parse(JSON.stringify(doc));
-  } catch (err) {
-    console.error("getCaseStudy error:", err);
-    return null;
-  }
+const siteName = "weberzio";
+
+export async function generateStaticParams() {
+  return CASE_STUDIES.map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const item = await getCaseStudy(slug);
-  const s = await getSiteSettings();
-  if (!item) return { title: `Case study not found — ${s.siteName}` };
-  const title = `${item.title} — ${s.siteName}`;
+  const item = getCaseStudyBySlug(slug);
+  if (!item) return { title: `Case study not found — ${siteName}` };
+  const title = `${item.title} — ${siteName}`;
   const description = item.summary || item.meta || undefined;
-  const image = item.coverImage || item.image || undefined;
+  const image = item.imageUrl || undefined;
   return {
     title,
     description,
@@ -51,10 +42,8 @@ export async function generateMetadata({ params }) {
 
 export default async function CaseStudyPage({ params }) {
   const { slug } = await params;
-  const item = await getCaseStudy(slug);
+  const item = getCaseStudyBySlug(slug);
   if (!item) notFound();
-
-  const settings = await getSiteSettings();
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -71,15 +60,15 @@ export default async function CaseStudyPage({ params }) {
     "@type": "CreativeWork",
     name: item.title,
     ...(item.summary && { description: item.summary }),
-    ...(item.coverImage && { image: item.coverImage }),
-    author: { "@type": "Organization", name: settings.siteName },
-    publisher: { "@type": "Organization", name: settings.siteName },
+    ...(item.imageUrl && { image: item.imageUrl }),
+    author: { "@type": "Organization", name: siteName },
+    publisher: { "@type": "Organization", name: siteName },
     ...(item.tags && { keywords: item.tags.join(", ") }),
   };
 
   return (
     <>
-      <Header siteName={settings.siteName} logoUrl={settings.logoUrl} />
+      <Header />
       <main>
         <PageHero
           eyebrow="Case Study"
@@ -89,7 +78,7 @@ export default async function CaseStudyPage({ params }) {
         />
         <CaseStudyDetail item={item} />
       </main>
-      <Footer siteName={settings.siteName} />
+      <Footer />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={articleLd} />
     </>

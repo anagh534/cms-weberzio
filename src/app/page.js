@@ -7,16 +7,15 @@ import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { getSiteSettings } from "@/lib/site-data";
 import { SERVICES } from "@/lib/services-data";
 
-export default async function Home() {
-  const settings = await getSiteSettings();
+const siteName = "weberzio";
 
+export default async function Home() {
   const servicesLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: `Services offered by ${settings.siteName}`,
+    name: `Services offered by ${siteName}`,
     itemListElement: SERVICES.map((s, i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -28,16 +27,16 @@ export default async function Home() {
 
   return (
     <>
-      <Header siteName={settings.siteName} logoUrl={settings.logoUrl} />
+      <Header />
       <main>
-        <Hero siteName={settings.siteName} tagline={settings.tagline} />
+        <Hero />
         <About tagIndex="01" />
         <Highlights tagIndex="02" />
         <Work tagIndex="03" />
         <Testimonials tagIndex="04" />
         <FAQ tagIndex="05" />
       </main>
-      <Footer siteName={settings.siteName} />
+      <Footer />
       <JsonLd data={servicesLd} />
     </>
   );

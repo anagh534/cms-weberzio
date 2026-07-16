@@ -1,11 +1,8 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { SERVICES } from "@/lib/services-data";
 import styles from "./ServicesGrid.module.css";
 
-const PLACEHOLDER = SERVICES.map((s) => ({
+const ITEMS = SERVICES.map((s) => ({
   slug: s.slug,
   title: s.title,
   description: s.description,
@@ -13,26 +10,6 @@ const PLACEHOLDER = SERVICES.map((s) => ({
 }));
 
 export default function ServicesGrid({ tagIndex = "01" }) {
-  const [items, setItems] = useState(PLACEHOLDER);
-
-  useEffect(() => {
-    fetch("/api/services")
-      .then((r) => r.json())
-      .then((data) => {
-        if (Array.isArray(data.services) && data.services.length > 0) {
-          setItems(
-            data.services.map((s) => ({
-              slug: s.slug,
-              title: s.title,
-              description: s.description || "",
-              tags: Array.isArray(s.tags) ? s.tags : [],
-            }))
-          );
-        }
-      })
-      .catch(() => {});
-  }, []);
-
   return (
     <section id="services" className={styles.section}>
       <header className={styles.header}>
@@ -52,7 +29,7 @@ export default function ServicesGrid({ tagIndex = "01" }) {
       </header>
 
       <div className={styles.grid}>
-        {items.map((item, i) => {
+        {ITEMS.map((item, i) => {
           const inner = (
             <>
               <div className={styles.cardIndex}>
@@ -70,7 +47,7 @@ export default function ServicesGrid({ tagIndex = "01" }) {
             </>
           );
 
-          return item.slug ? (
+          return (
             <Link
               key={item.slug}
               href={`/services/${item.slug}`}
@@ -79,10 +56,6 @@ export default function ServicesGrid({ tagIndex = "01" }) {
             >
               {inner}
             </Link>
-          ) : (
-            <article key={item._id || i} className={styles.card} style={{ "--i": i }}>
-              {inner}
-            </article>
           );
         })}
       </div>

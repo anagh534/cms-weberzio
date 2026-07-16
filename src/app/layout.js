@@ -1,12 +1,11 @@
 import { Sora } from "next/font/google";
-import { headers } from "next/headers";
 import CursorDot from "@/components/CursorDot";
 import TawkChat from "@/components/TawkChat";
 import JsonLd from "@/components/JsonLd";
 import { getSiteSettings } from "@/lib/site-data";
 import "./globals.css";
 
-export const dynamic = "force-dynamic";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.com";
 
 export async function generateViewport() {
   const s = await getSiteSettings();
@@ -23,29 +22,16 @@ const sora = Sora({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-async function getOrigin() {
-  const h = await headers();
-  const proto = h.get("x-forwarded-proto") || "http";
-  const host = h.get("x-forwarded-host") || h.get("host") || "localhost:3000";
-  return `${proto}://${host}`;
-}
-
 export async function generateMetadata() {
   const s = await getSiteSettings();
   const homePage = s.pages?.home || {};
 
+  const origin = siteUrl;
   const title = homePage.title || s.homeTitle || s.siteName;
   const description =
-    homePage.description ||
-    s.homeDescription ||
-    `${s.siteName} builds reliable web applications, SaaS platforms, APIs, and cloud infrastructure for startups and enterprises.`;
+    homePage.description || s.homeDescription;
   const keywords = homePage.keywords || s.keywords;
   const ogImage = homePage.ogImage || s.ogImageUrl;
-
-  const origin = await getOrigin();
-  const h = await headers();
-  const pathname = h.get("x-invoke-path") || h.get("x-pathname") || "/";
-  const canonical = `${origin}${pathname}`;
 
   return {
     metadataBase: new URL(origin),
@@ -59,9 +45,8 @@ export async function generateMetadata() {
     authors: [{ name: s.siteName }],
     creator: s.siteName,
     publisher: s.siteName,
-    icons: s.faviconUrl ? { icon: s.faviconUrl } : undefined,
     alternates: {
-      canonical,
+      canonical: origin,
     },
     robots: {
       index: true,
@@ -77,7 +62,7 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      url: canonical,
+      url: origin,
       siteName: s.siteName,
       images: ogImage ? [ogImage] : undefined,
       type: "website",
@@ -100,20 +85,14 @@ export async function generateMetadata() {
 
 export default async function RootLayout({ children }) {
   const s = await getSiteSettings();
-  const origin = await getOrigin();
+  const origin = siteUrl;
 
   const organizationLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: s.siteName,
     url: origin,
-    ...(s.logoUrl && { logo: `${origin}${s.logoUrl.startsWith("/") ? "" : "/"}${s.logoUrl}` }),
-    description:
-      s.homeDescription ||
-      `${s.siteName} builds reliable web applications, SaaS platforms, APIs, and cloud infrastructure.`,
-    ...(s.twitterHandle && {
-      sameAs: [`https://twitter.com/${s.twitterHandle}`],
-    }),
+    description: s.homeDescription,
   };
 
   const websiteLd = {
@@ -121,7 +100,7 @@ export default async function RootLayout({ children }) {
     "@type": "WebSite",
     name: s.siteName,
     url: origin,
-    ...(s.homeDescription && { description: s.homeDescription }),
+    description: s.homeDescription,
   };
 
   return (

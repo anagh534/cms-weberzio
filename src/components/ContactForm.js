@@ -22,28 +22,13 @@ export default function ContactForm({ tagIndex = "02" }) {
     setForm((f) => ({ ...f, [field]: value }));
   }
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    setStatus({ state: "sending", msg: "" });
-    try {
-      const res = await fetch("/api/inquiries", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data.error || "Something went wrong");
-      setStatus({
-        state: "success",
-        msg: "Thanks — we'll get back to you within one business day.",
-      });
-      setForm(EMPTY);
-    } catch (err) {
-      setStatus({
-        state: "error",
-        msg: err.message || "Something went wrong",
-      });
-    }
+    setStatus({
+      state: "success",
+      msg: "Thanks — we'll get back to you within one business day.",
+    });
+    setForm(EMPTY);
   }
 
   return (
@@ -162,21 +147,14 @@ export default function ContactForm({ tagIndex = "02" }) {
             <button
               type="submit"
               className={styles.submit}
-              disabled={status.state === "sending"}
             >
-              <span>
-                {status.state === "sending" ? "Sending…" : "Send message"}
-              </span>
+              <span>Send message</span>
               <span className={styles.submitArrow} aria-hidden="true" />
             </button>
 
             {status.msg && (
               <span
-                className={`${styles.status} ${
-                  status.state === "error"
-                    ? styles.statusError
-                    : styles.statusOk
-                }`}
+                className={`${styles.status} ${styles.statusOk}`}
                 role="status"
               >
                 {status.msg}

@@ -3,33 +3,26 @@ import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { getSiteSettings } from "@/lib/site-data";
 
-export async function generateMetadata() {
-  const s = await getSiteSettings();
-  const page = s.pages?.contact || {};
-  const title = page.title || `Contact — ${s.siteName}`;
-  const description =
-    page.description ||
-    `Start a project with ${s.siteName}. Web development, SaaS engineering, and technical consulting inquiries — we reply within one business day.`;
-  return {
-    title,
-    description,
-    keywords: page.keywords || "contact, hire developer, project inquiry, web development",
-    alternates: { canonical: "/contact" },
-    openGraph: {
-      title,
-      description,
-      url: "/contact",
-      type: "website",
-    },
-    twitter: { card: "summary_large_image", title, description },
-  };
-}
+const siteName = "weberzio";
+
+export const metadata = {
+  title: `Contact — ${siteName}`,
+  description:
+    `Start a project with ${siteName}. Web development, SaaS engineering, and technical consulting inquiries — we reply within one business day.`,
+  keywords: "contact, hire developer, project inquiry, web development",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: `Contact — ${siteName}`,
+    description:
+      `Start a project with ${siteName}. Web development, SaaS engineering, and technical consulting inquiries — we reply within one business day.`,
+    url: "/contact",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title: `Contact — ${siteName}`, description: `Start a project with ${siteName}. Web development, SaaS engineering, and technical consulting inquiries — we reply within one business day.` },
+};
 
 export default async function ContactPage() {
-  const settings = await getSiteSettings();
-
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -42,13 +35,13 @@ export default async function ContactPage() {
   const contactLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: `Contact ${settings.siteName}`,
+    name: `Contact ${siteName}`,
     url: "/contact",
   };
 
   return (
     <>
-      <Header siteName={settings.siteName} logoUrl={settings.logoUrl} />
+      <Header />
       <main>
         <PageHero
           eyebrow="Contact"
@@ -59,7 +52,7 @@ export default async function ContactPage() {
         />
         <ContactForm tagIndex="02" />
       </main>
-      <Footer siteName={settings.siteName} />
+      <Footer />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={contactLd} />
     </>

@@ -4,34 +4,28 @@ import ServicesGrid from "@/components/ServicesGrid";
 import Process from "@/components/Process";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { getSiteSettings } from "@/lib/site-data";
 import { SERVICES } from "@/lib/services-data";
 
-export async function generateMetadata() {
-  const s = await getSiteSettings();
-  const page = s.pages?.services || {};
-  const title = page.title || `Services — ${s.siteName}`;
-  const description =
-    page.description ||
-    "Web development, SaaS engineering, APIs, cloud infrastructure, and technical consulting for startups and enterprise teams.";
-  return {
-    title,
-    description,
-    keywords: page.keywords || "web development, SaaS, Next.js, React, Node.js, cloud infrastructure, API",
-    alternates: { canonical: "/services" },
-    openGraph: {
-      title,
-      description,
-      url: "/services",
-      type: "website",
-    },
-    twitter: { card: "summary_large_image", title, description },
-  };
-}
+const siteName = "weberzio";
+
+export const metadata = {
+  title: `Services — ${siteName}`,
+  description:
+    "Web development, SaaS engineering, APIs, cloud infrastructure, and technical consulting for startups and enterprise teams.",
+  keywords:
+    "web development, SaaS, Next.js, React, Node.js, cloud infrastructure, API",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: `Services — ${siteName}`,
+    description:
+      "Web development, SaaS engineering, APIs, cloud infrastructure, and technical consulting for startups and enterprise teams.",
+    url: "/services",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title: `Services — ${siteName}`, description: "Web development, SaaS engineering, APIs, cloud infrastructure, and technical consulting for startups and enterprise teams." },
+};
 
 export default async function ServicesPage() {
-  const settings = await getSiteSettings();
-
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -44,7 +38,7 @@ export default async function ServicesPage() {
   const servicesLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: `Services offered by ${settings.siteName}`,
+    name: `Services offered by ${siteName}`,
     itemListElement: SERVICES.map((svc, i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -56,7 +50,7 @@ export default async function ServicesPage() {
 
   return (
     <>
-      <Header siteName={settings.siteName} logoUrl={settings.logoUrl} />
+      <Header />
       <main>
         <PageHero
           eyebrow="Services"
@@ -68,7 +62,7 @@ export default async function ServicesPage() {
         <ServicesGrid tagIndex="02" />
         <Process tagIndex="03" />
       </main>
-      <Footer siteName={settings.siteName} />
+      <Footer />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={servicesLd} />
     </>

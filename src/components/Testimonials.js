@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import styles from "./Testimonials.module.css";
 
-const PLACEHOLDER = [
+const ITEMS = [
   {
     name: "Sarah Chen",
     role: "Head of Product",
@@ -59,19 +58,6 @@ function Stars({ count = 5 }) {
 }
 
 export default function Testimonials({ tagIndex = "02" }) {
-  const [items, setItems] = useState(PLACEHOLDER);
-
-  useEffect(() => {
-    fetch("/api/testimonials")
-      .then((r) => r.json())
-      .then((data) => {
-        if (Array.isArray(data.testimonials) && data.testimonials.length > 0) {
-          setItems(data.testimonials);
-        }
-      })
-      .catch(() => {});
-  }, []);
-
   return (
     <section id="testimonials" className={styles.section}>
       <header className={styles.header}>
@@ -91,8 +77,8 @@ export default function Testimonials({ tagIndex = "02" }) {
       </header>
 
       <div className={styles.grid}>
-        {items.map((t, i) => (
-          <article key={t._id || i} className={styles.card} style={{ "--i": i }}>
+        {ITEMS.map((t, i) => (
+          <article key={i} className={styles.card} style={{ "--i": i }}>
             <div className={styles.cardTop}>
               <Stars count={t.rating || 5} />
               <span className={styles.quoteMark} aria-hidden="true">&ldquo;</span>

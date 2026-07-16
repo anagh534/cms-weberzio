@@ -1,23 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 import styles from "./Work.module.css";
 
-const PLACEHOLDER = [
+const ITEMS = [
   {
+    slug: "nova-saas-platform",
     title: "Nova — SaaS Platform",
     meta: "web app / product engineering",
     year: "2025",
     tags: ["Next.js", "TypeScript", "Postgres"],
   },
   {
+    slug: "halcyon-fintech-api",
     title: "Halcyon — FinTech API",
     meta: "backend / integrations",
     year: "2025",
     tags: ["Node.js", "Stripe", "GraphQL"],
   },
   {
+    slug: "prism-ecommerce-suite",
     title: "Prism — E-commerce Suite",
     meta: "full stack / commerce",
     year: "2024",
@@ -26,20 +27,8 @@ const PLACEHOLDER = [
 ];
 
 export default function Work({ tagIndex = "02" }) {
-  const [items, setItems] = useState(PLACEHOLDER);
-
-  useEffect(() => {
-    fetch("/api/products")
-      .then((r) => r.json())
-      .then((data) => {
-        const products = data.products || [];
-        if (products.length > 0) setItems(products);
-      })
-      .catch(() => {});
-  }, []);
-
   // Show only the first 3 — the 4th slot is the CTA tile
-  const visible = items.slice(0, 3);
+  const visible = ITEMS.slice(0, 3);
 
   return (
     <section id="work" className={styles.section}>
@@ -64,7 +53,7 @@ export default function Work({ tagIndex = "02" }) {
       <div className={styles.grid}>
         {visible.map((item, i) => (
           <a
-            key={item._id || i}
+            key={item.slug}
             href={item.slug ? `/work/${item.slug}` : "#"}
             className={styles.card}
             style={{ "--i": i }}

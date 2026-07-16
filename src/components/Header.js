@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MenuOverlay from "./MenuOverlay";
 import styles from "./Header.module.css";
 
-const FALLBACK_ITEMS = [
+const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Work", href: "/#work" },
@@ -13,19 +13,6 @@ const FALLBACK_ITEMS = [
 
 export default function Header({ siteName = "weberzio", logoUrl = "" }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [items, setItems] = useState(FALLBACK_ITEMS);
-
-  useEffect(() => {
-    fetch("/api/menus")
-      .then((r) => r.json())
-      .then((data) => {
-        const header = data.menus?.header;
-        if (Array.isArray(header) && header.length > 0) {
-          setItems(header.map((i) => ({ label: i.label, href: i.href })));
-        }
-      })
-      .catch(() => {});
-  }, []);
 
   return (
     <>
@@ -64,7 +51,7 @@ export default function Header({ siteName = "weberzio", logoUrl = "" }) {
       <MenuOverlay
         open={menuOpen}
         onClose={() => setMenuOpen(false)}
-        items={items}
+        items={NAV_ITEMS}
         siteName={siteName}
       />
     </>
