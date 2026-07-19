@@ -35,7 +35,7 @@ export default function Footer({ siteName = "weberzio" }) {
         </h2>
       </div>
 
-      <a href="mailto:hello@example.com" className={styles.marquee} aria-label="Get in touch">
+      <a href="mailto:info@weberzio.in" className={styles.marquee} aria-label="Get in touch">
         <div className={styles.marqueeTrack}>
           {marqueeItems.map((i) => (
             <span key={i} className={styles.marqueeGroup}>
@@ -58,8 +58,8 @@ export default function Footer({ siteName = "weberzio" }) {
 
         <div className={styles.col}>
           <h3 className={styles.colTitle}>Say Hello</h3>
-          <a href="mailto:hello@example.com" className={styles.colLink}>
-            hello@example.com
+          <a href="mailto:info@weberzio.in" className={styles.colLink}>
+            info@weberzio.in
           </a>
         </div>
 

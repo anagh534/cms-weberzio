@@ -79,11 +79,11 @@ export default function MenuOverlay({ open, onClose, items, siteName }) {
               from early-stage web apps and APIs to production platforms your
               customers can trust.
             </p>
-            <a href="tel:+10000000000" className={styles.contactPhone}>
-              +1 (000) 000&mdash;0000
+            <a href="tel:+918281571805" className={styles.contactPhone}>
+              +91 82815 71805
             </a>
-            <a href="mailto:hello@example.com" className={styles.contactEmail}>
-              hello@example.com
+            <a href="mailto:info@weberzio.in" className={styles.contactEmail}>
+              info@weberzio.in
             </a>
           </div>
         </aside>
