@@ -49,8 +49,8 @@ export default function ContactForm({ tagIndex = "02" }) {
             one business day.
           </p>
 
-          <a href="mailto:info@weberzio.in" className={styles.emailLink}>
-            info@weberzio.in
+          <a href="mailto:support@weberzio.in" className={styles.emailLink}>
+            support@weberzio.in
           </a>
 
           <ul className={styles.details}>
