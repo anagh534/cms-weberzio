@@ -13,7 +13,7 @@ const title = `About ${siteName} — Web & Mobile App Development Company in Ker
 const description =
   `Based in Kerala, India, ${siteName} is a premium engineering studio specializing in web and mobile app development. We build scalable SaaS products and platforms using Flutter, Next.js, and the MERN stack for clients globally.`;
 const keywords =
-  "about weberzio, web and mobile app development company, flutter development team, mern stack experts, software engineering studio kerala india, saas development, nextjs agency";
+  "about weberzio, web and mobile app development company, Best practices for small business websites in Kerala, Reviews of website development agencies in Kerala, flutter development team, mern stack experts, software engineering studio kerala india, saas development, nextjs agency";
 
 export const metadata = {
   title,
