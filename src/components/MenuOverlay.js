@@ -82,8 +82,8 @@ export default function MenuOverlay({ open, onClose, items, siteName }) {
             <a href="tel:+918281571805" className={styles.contactPhone}>
               +91 82815 71805
             </a>
-            <a href="mailto:info@weberzio.in" className={styles.contactEmail}>
-              info@weberzio.in
+            <a href="mailto:support@weberzio.in" className={styles.contactEmail}>
+              support@weberzio.in
             </a>
           </div>
         </aside>
