@@ -93,6 +93,17 @@ export default async function RootLayout({ children }) {
     name: s.siteName,
     url: origin,
     description: s.homeDescription,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Kerala",
+      addressCountry: "IN"
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+91-8281571805",
+      contactType: "customer support",
+      email: "support@weberzio.in"
+    }
   };
 
   const websiteLd = {
