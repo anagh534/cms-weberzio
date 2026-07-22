@@ -2,7 +2,7 @@ import { DEFAULT_ROBOTS, fillTemplate } from "@/lib/seo-defaults";
 
 export const dynamic = "force-static";
 
-const origin = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.com";
+const origin = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in";
 
 export async function GET() {
   const body = fillTemplate(DEFAULT_ROBOTS, { origin });
