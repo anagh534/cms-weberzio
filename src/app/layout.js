@@ -80,9 +80,6 @@ export async function generateMetadata() {
       address: false,
       telephone: false,
     },
-    icons: {
-      icon: "/faveicon.png",
-    },
   };
 }
 
