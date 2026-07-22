@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Hero.module.css";
 
 export default function Hero({ siteName = "Weberzio", tagline = "Web & Mobile App Development" }) {
@@ -45,8 +46,7 @@ export default function Hero({ siteName = "Weberzio", tagline = "Web & Mobile Ap
 
           <p className={styles.description}>
             A premium web and mobile app development team in Kerala, India. We help startups and 
-            enterprises ship reliable products &mdash; from Flutter mobile apps and MERN stack websites 
-            to cloud infrastructure built for scale.
+            enterprises ship reliable products &mdash; from <Link href="/services/saas-product-engineering" style={{textDecoration: 'underline', color: 'inherit'}}>Flutter mobile apps</Link> and <Link href="/services/web-application-development" style={{textDecoration: 'underline', color: 'inherit'}}>MERN stack websites</Link> to <Link href="/services/cloud-infrastructure-devops" style={{textDecoration: 'underline', color: 'inherit'}}>cloud infrastructure</Link> built for scale.
           </p>
         </div>
       </div>
