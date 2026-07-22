@@ -7,7 +7,7 @@ import { SERVICES } from "@/lib/services-data";
 import styles from "./page.module.css";
 
 const siteName = "weberzio";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in";
 
 const title = `About ${siteName} — Engineering Studio for Web & SaaS Products`;
 const description =

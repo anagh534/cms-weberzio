@@ -5,7 +5,7 @@ import JsonLd from "@/components/JsonLd";
 import { getSiteSettings } from "@/lib/site-data";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in";
 
 export async function generateViewport() {
   const s = await getSiteSettings();
