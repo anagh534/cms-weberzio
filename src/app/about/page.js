@@ -6,14 +6,14 @@ import JsonLd from "@/components/JsonLd";
 import { SERVICES } from "@/lib/services-data";
 import styles from "./page.module.css";
 
-const siteName = "weberzio";
+const siteName = "Weberzio";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in";
 
-const title = `About ${siteName} — Engineering Studio for Web & SaaS Products`;
+const title = `About ${siteName} — Web & Mobile App Development Company in Kerala`;
 const description =
-  `${siteName} is a distributed engineering studio building fast, resilient web platforms and SaaS products. Learn how our senior team designs, ships, and scales software with founders and enterprise teams worldwide.`;
+  `Based in Kerala, India, ${siteName} is a premium engineering studio specializing in web and mobile app development. We build scalable SaaS products and platforms using Flutter, Next.js, and the MERN stack for clients globally.`;
 const keywords =
-  "about weberzio, web development studio, saas engineering team, product engineering, custom software development, nextjs agency, react development team, technical partner";
+  "about weberzio, web and mobile app development company, flutter development team, mern stack experts, software engineering studio kerala india, saas development, nextjs agency";
 
 export const metadata = {
   title,
@@ -79,10 +79,10 @@ const processSteps = [
 ];
 
 const stack = [
-  { group: "Frontend", items: "Next.js, React, TypeScript, Tailwind, Framer Motion" },
-  { group: "Backend", items: "Node.js, Python, Go, PostgreSQL, Redis" },
-  { group: "Infra", items: "Vercel, AWS, Cloudflare, Docker, Terraform" },
-  { group: "Data & AI", items: "OpenAI, Anthropic, LangChain, vector search, RAG pipelines" },
+  { group: "Web", items: "Next.js, React, Astro, MERN Stack, TypeScript" },
+  { group: "Mobile", items: "Flutter, Cross-platform Architecture" },
+  { group: "Backend", items: "Node.js, Express, PostgreSQL, MongoDB" },
+  { group: "DevOps", items: "AWS, Vercel, Docker, CI/CD Pipelines" },
 ];
 
 export default function AboutPage() {
@@ -108,11 +108,16 @@ export default function AboutPage() {
       description,
       foundingDate: "2018",
       areaServed: "Worldwide",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Kerala",
+        addressCountry: "India"
+      },
       knowsAbout: [
-        "Web development",
+        "Web and Mobile App Development",
         "SaaS engineering",
-        "Product design",
-        "Technical consulting",
+        "Flutter Development",
+        "MERN Stack",
         "Cloud infrastructure",
       ],
     },
@@ -127,7 +132,7 @@ export default function AboutPage() {
           eyebrowIndex="01"
           title="We build software"
           titleAlt="teams actually keep using."
-          description="weberzio is a distributed engineering studio for founders, product teams, and enterprises. We design, build, and scale web platforms and SaaS products with a small bench of senior engineers."
+          description="Weberzio is an expert web and mobile app development team based in Kerala. We design, build, and scale SaaS products and mobile platforms with a highly experienced engineering team."
         />
 
         <section className={styles.intro}>
@@ -138,19 +143,18 @@ export default function AboutPage() {
           <div className={styles.introGrid}>
             <div className={styles.introCopy}>
               <p>
-                We started weberzio in 2018 after years of watching well-funded
+                We started Weberzio in 2018 after years of watching well-funded
                 products stall on the last mile of engineering — the part
                 between a working prototype and a platform that thousands of
-                customers rely on every day. Our answer was a smaller kind of
-                studio: senior engineers who own the outcome, work directly
+                customers rely on every day. Our answer was a specialized
+                studio: senior developers in Kerala, India, who own the outcome, work directly
                 with founders and product leads, and stay close to the code
                 long after launch.
               </p>
               <p>
                 Today we partner with early-stage teams shipping their first
-                paying product, growth-stage companies rebuilding for scale,
-                and established businesses modernising the systems their
-                operations already depend on. The tools change, the problems
+                Flutter mobile app, growth-stage companies scaling their MERN stack products,
+                and established businesses modernising their legacy systems. The tools change, the problems
                 are the same: ship something durable, keep it fast, and make
                 it clear enough that the next engineer can pick it up without
                 a call.

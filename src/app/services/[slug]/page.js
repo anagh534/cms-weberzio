@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { SERVICES, getServiceBySlug } from "@/lib/services-data";
 
-const siteName = "weberzio";
+const siteName = "Weberzio";
 
 export async function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -17,19 +17,32 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return { title: `Service not found — ${siteName}` };
-  const title = `${service.title} — ${siteName}`;
+  
+  const title = `${service.title} | Web & Mobile App Development — ${siteName}`;
+  const description = `${service.description} Partner with ${siteName} in Kerala, India, for specialized solutions in SaaS, Flutter, and the MERN Stack.`;
+  
+  const keywordsSet = new Set([
+    ...(service.tags || []),
+    "Web & Mobile App Development",
+    "SaaS",
+    "Flutter",
+    "MERN Stack",
+    "Kerala",
+    "India"
+  ]);
+
   return {
     title,
-    description: service.description,
-    keywords: service.tags?.join(", "),
+    description,
+    keywords: Array.from(keywordsSet).join(", "),
     alternates: { canonical: `/services/${slug}` },
     openGraph: {
       title,
-      description: service.description,
+      description,
       url: `/services/${slug}`,
       type: "article",
     },
-    twitter: { card: "summary_large_image", title, description: service.description },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
@@ -53,7 +66,15 @@ export default async function ServiceSlugPage({ params }) {
     "@type": "Service",
     name: service.title,
     description: service.description,
-    provider: { "@type": "Organization", name: siteName },
+    provider: { 
+      "@type": "Organization", 
+      name: siteName,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Kerala",
+        addressCountry: "India"
+      }
+    },
     ...(service.tags && { serviceType: service.tags.join(", ") }),
   };
 

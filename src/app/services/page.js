@@ -6,23 +6,27 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { SERVICES } from "@/lib/services-data";
 
-const siteName = "weberzio";
+const siteName = "Weberzio";
 
 export const metadata = {
-  title: `Services — ${siteName}`,
+  title: `Web & Mobile App Development Services in Kerala, India | ${siteName}`,
   description:
-    "Web development, SaaS engineering, APIs, cloud infrastructure, and technical consulting for startups and enterprise teams.",
+    "Weberzio provides expert Web & Mobile App Development, SaaS engineering, and cloud infrastructure. We leverage technologies like Flutter and the MERN Stack from Kerala, India, to empower startups and enterprises globally.",
   keywords:
-    "web development, SaaS, Next.js, React, Node.js, cloud infrastructure, API",
+    "Web & Mobile App Development, SaaS, Flutter, MERN Stack, Kerala, India, Next.js, React, Node.js, cloud infrastructure, API",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: `Services — ${siteName}`,
+    title: `Web & Mobile App Development Services in Kerala, India | ${siteName}`,
     description:
-      "Web development, SaaS engineering, APIs, cloud infrastructure, and technical consulting for startups and enterprise teams.",
+      "Weberzio provides expert Web & Mobile App Development, SaaS engineering, and cloud infrastructure. We leverage technologies like Flutter and the MERN Stack from Kerala, India, to empower startups and enterprises globally.",
     url: "/services",
     type: "website",
   },
-  twitter: { card: "summary_large_image", title: `Services — ${siteName}`, description: "Web development, SaaS engineering, APIs, cloud infrastructure, and technical consulting for startups and enterprise teams." },
+  twitter: {
+    card: "summary_large_image",
+    title: `Web & Mobile App Development Services | ${siteName}`,
+    description: "Weberzio provides expert Web & Mobile App Development, SaaS engineering, and cloud infrastructure using Flutter and MERN Stack from Kerala, India."
+  },
 };
 
 export default async function ServicesPage() {
