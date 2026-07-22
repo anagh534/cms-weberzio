@@ -108,7 +108,7 @@ export default async function RootLayout({ children }) {
       <body>
         <CursorDot />
         {children}
-        <TawkChat />
+        {/* <TawkChat /> */}
         <JsonLd data={organizationLd} />
         <JsonLd data={websiteLd} />
       </body>
