@@ -30,9 +30,9 @@ export const metadata = {
 };
 
 const stats = [
-  { value: "60+", label: "Products shipped" },
-  { value: "8yr", label: "In the field" },
-  { value: "12", label: "Countries served" },
+  { value: "10+", label: "Products shipped" },
+  { value: "1+", label: "Years in the field" },
+  { value: "4", label: "Countries served" },
   { value: "98%", label: "Client retention" },
 ];
 
