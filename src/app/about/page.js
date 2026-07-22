@@ -106,7 +106,7 @@ export default function AboutPage() {
       name: siteName,
       url: siteUrl,
       description,
-      foundingDate: "2018",
+      foundingDate: "2025",
       areaServed: "Worldwide",
       address: {
         "@type": "PostalAddress",
@@ -143,7 +143,7 @@ export default function AboutPage() {
           <div className={styles.introGrid}>
             <div className={styles.introCopy}>
               <p>
-                We started Weberzio in 2018 after years of watching well-funded
+                We started Weberzio in 2025 after years of watching well-funded
                 products stall on the last mile of engineering — the part
                 between a working prototype and a platform that thousands of
                 customers rely on every day. Our answer was a specialized
@@ -152,9 +152,11 @@ export default function AboutPage() {
                 long after launch.
               </p>
               <p>
-                Today we partner with early-stage teams shipping their first
-                Flutter mobile app, growth-stage companies scaling their MERN stack products,
-                and established businesses modernising their legacy systems. The tools change, the problems
+                Today we partner with early-stage teams shipping their first{" "}
+                <Link href="/services/saas-product-engineering" style={{ textDecoration: 'underline', color: 'inherit' }}>Flutter mobile app</Link>, growth-stage companies scaling their{" "}
+                <Link href="/services/web-application-development" style={{ textDecoration: 'underline', color: 'inherit' }}>MERN stack products</Link>,
+                and established businesses modernising their legacy systems with robust{" "}
+                <Link href="/services/cloud-infrastructure-devops" style={{ textDecoration: 'underline', color: 'inherit' }}>cloud infrastructure</Link>. The tools change, the problems
                 are the same: ship something durable, keep it fast, and make
                 it clear enough that the next engineer can pick it up without
                 a call.

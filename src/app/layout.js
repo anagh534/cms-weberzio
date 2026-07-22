@@ -1,6 +1,7 @@
 import { Sora } from "next/font/google";
+import Script from "next/script";
 import CursorDot from "@/components/CursorDot";
-import TawkChat from "@/components/TawkChat";
+// import TawkChat from "@/components/TawkChat";
 import JsonLd from "@/components/JsonLd";
 import { getSiteSettings } from "@/lib/site-data";
 import "./globals.css";
@@ -117,6 +118,19 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" className={`${sora.variable}`}>
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-QJB16WRWKF"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-QJB16WRWKF');
+          `}
+        </Script>
         <CursorDot />
         {children}
         {/* <TawkChat /> */}
