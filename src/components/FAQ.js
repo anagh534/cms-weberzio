@@ -9,24 +9,24 @@ const FAQS = [
     a: "We build custom web applications, mobile apps (Flutter), SaaS platforms, marketing sites, internal tools, and APIs. As a full-stack development team, we work with startups and enterprises to build software that scales.",
   },
   {
-    q: "Which technologies do you specialise in?",
-    a: "Our core stack includes Next.js, React, Astro, Node.js (MERN stack) for web, and Flutter for cross-platform mobile apps. We also handle cloud infrastructure and DevOps on AWS and Google Cloud.",
+    q: "How to choose a web development company in Kerala?",
+    a: "When choosing a web development company in Kerala, look for a team with a strong portfolio, transparent pricing, and deep technical expertise. At Weberzio, we pride ourselves on being one of the best companies for website development in Kerala, focusing on scalable architecture, clear communication, and delivering reliable software.",
+  },
+  {
+    q: "What are the popular website development packages offered in Kerala?",
+    a: "Popular website development packages typically range from basic corporate landing pages to full-scale e-commerce solutions and custom SaaS platforms. We offer affordable website development services near me in Kerala tailored to your business needs, whether you're a small business or an enterprise.",
+  },
+  {
+    q: "How much does custom web application development cost in Trivandrum or Kochi?",
+    a: "The website development cost in Kerala varies based on complexity. A simple corporate site might be highly affordable, while the cost of custom web application development in Trivandrum or affordable e-commerce website solutions in Kochi depends on the features, integrations, and scale. We share a clear, fixed-price proposal before we begin.",
   },
   {
     q: "Where is your team based?",
-    a: "We are a premium web and mobile app development team based in Kerala, India. We partner with local and global clients, providing top-tier custom software solutions and technical consulting.",
-  },
-  {
-    q: "How do you price a project?",
-    a: "Most work is scoped as a fixed-price milestone (for well-defined features like a React website or Flutter app) or a monthly retainer (for ongoing product engineering). We share a clear proposal before we begin.",
-  },
-  {
-    q: "Do you offer web hosting and DevOps services?",
-    a: "Absolutely. Beyond custom software engineering, we manage cloud infrastructure, continuous deployment (DevOps), and ongoing web hosting to ensure your web applications run reliably and securely.",
+    a: "We are a premium team of freelance website developers and engineers based in Kerala, India. We partner with local and global clients, providing top-tier custom software solutions and technical consulting.",
   },
   {
     q: "Do you work with existing codebases?",
-    a: "Yes — we frequently audit legacy applications, take over stalled projects, or help existing teams scale. We map the code, identify risks, and quickly ship the first milestone.",
+    a: "Yes — we frequently audit legacy applications, take over stalled projects, or help existing teams scale. Whether you need top-rated agencies for responsive web design in Calicut to revamp your UI or backend experts to fix performance issues, we map the code and quickly ship the first milestone.",
   },
 ];
 

@@ -45,8 +45,8 @@ export default function Hero({ siteName = "Weberzio", tagline = "Web & Mobile Ap
           </a>
 
           <p className={styles.description}>
-            A premium web and mobile app development team in Kerala, India. We help startups and 
-            enterprises ship reliable products &mdash; from <Link href="/services/saas-product-engineering" style={{textDecoration: 'underline', color: 'inherit'}}>Flutter mobile apps</Link> and <Link href="/services/web-application-development" style={{textDecoration: 'underline', color: 'inherit'}}>MERN stack websites</Link> to <Link href="/services/cloud-infrastructure-devops" style={{textDecoration: 'underline', color: 'inherit'}}>cloud infrastructure</Link> built for scale.
+            A premium <strong>web and mobile app development team</strong> and the <strong>best website development company in Kerala</strong>. We help startups and 
+            enterprises ship reliable products. From <Link href="/services/saas-product-engineering" style={{textDecoration: 'underline', color: 'inherit'}}>Flutter mobile apps</Link> and <strong>ecommerce website development in Kerala</strong> to <Link href="/services/web-application-development" style={{textDecoration: 'underline', color: 'inherit'}}>MERN stack websites</Link> and <Link href="/services/cloud-infrastructure-devops" style={{textDecoration: 'underline', color: 'inherit'}}>cloud infrastructure</Link> built for scale.
           </p>
         </div>
       </div>
