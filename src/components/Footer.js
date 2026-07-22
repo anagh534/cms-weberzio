@@ -35,7 +35,7 @@ export default function Footer({ siteName = "weberzio" }) {
         </h2>
       </div>
 
-      <a href="mailto:hello@example.com" className={styles.marquee} aria-label="Get in touch">
+      <a href="mailto:support@weberzio.in" className={styles.marquee} aria-label="Get in touch">
         <div className={styles.marqueeTrack}>
           {marqueeItems.map((i) => (
             <span key={i} className={styles.marqueeGroup}>
@@ -58,8 +58,8 @@ export default function Footer({ siteName = "weberzio" }) {
 
         <div className={styles.col}>
           <h3 className={styles.colTitle}>Say Hello</h3>
-          <a href="mailto:hello@example.com" className={styles.colLink}>
-            hello@example.com
+          <a href="mailto:support@weberzio.in" className={styles.colLink}>
+            support@weberzio.in
           </a>
         </div>
 
@@ -103,14 +103,17 @@ export default function Footer({ siteName = "weberzio" }) {
       <div className={styles.bottom}>
         <span className={styles.brand}>{siteName}</span>
         <span className={styles.copy}>© {year} All rights reserved</span>
-        <button
-          type="button"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className={styles.toTop}
-          aria-label="Back to top"
-        >
-          <span className={styles.toTopArrow} aria-hidden="true" />
-        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: "24px", marginLeft: "auto" }}>
+          <a href="/terms" className={styles.copy} style={{ textDecoration: "none" }}>Terms and Conditions</a>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className={styles.toTop}
+            aria-label="Back to top"
+          >
+            <span className={styles.toTopArrow} aria-hidden="true" />
+          </button>
+        </div>
       </div>
     </footer>
   );

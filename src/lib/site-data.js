@@ -1,11 +1,11 @@
 const DEFAULT_SETTINGS = {
-  siteName: "weberzio",
-  tagline: "UX/UI Designer",
-  homeTitle: "weberzio",
+  siteName: "Weberzio",
+  tagline: "Web & Mobile App Development Company in Kerala",
+  homeTitle: "Weberzio - Web & Mobile App Development Company in Kerala",
   homeDescription:
-    "weberzio builds reliable web applications, SaaS platforms, APIs, and cloud infrastructure for startups and enterprises.",
+    "Weberzio is a premium web and mobile application development team based in Kerala, India. We build custom software solutions, SaaS platforms, APIs, and cloud infrastructure.",
   keywords:
-    "web development, SaaS, Next.js, React, Node.js, cloud infrastructure, API, software engineering",
+    "web development, mobile app development, Flutter, Next.js, React, Node.js, SaaS, cloud infrastructure, API, software engineering, Kerala, India, web hosting, MERN stack",
   ogImageUrl: "",
   twitterHandle: "",
   themeColor: "#04050f",
@@ -17,3 +17,4 @@ const DEFAULT_SETTINGS = {
 export async function getSiteSettings() {
   return { ...DEFAULT_SETTINGS };
 }
+

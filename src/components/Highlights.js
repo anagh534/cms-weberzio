@@ -1,8 +1,8 @@
 import styles from "./Highlights.module.css";
 
 const STATS = [
-  { value: "50+", label: "Products shipped", detail: "Web apps, SaaS platforms, and internal tools delivered to production." },
-  { value: "10+", label: "Years engineering", detail: "Full-stack experience across startups, scale-ups, and enterprise teams." },
+  { value: "10+", label: "Products shipped", detail: "Web apps, SaaS platforms, and internal tools delivered to production." },
+  { value: "1+", label: "Years engineering", detail: "Full-stack experience across startups, scale-ups, and enterprise teams." },
   { value: "99.9%", label: "Uptime targeted", detail: "Cloud infrastructure designed, monitored, and hardened for reliability." },
   { value: "24h", label: "Response time", detail: "We reply to project inquiries within one business day." },
 ];
