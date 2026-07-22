@@ -10,6 +10,7 @@ export async function GET() {
   const staticRoutes = [
     { path: "/", changefreq: "weekly", priority: "1.0" },
     { path: "/services", changefreq: "monthly", priority: "0.9" },
+    { path: "/about", changefreq: "monthly", priority: "0.8" },
     { path: "/contact", changefreq: "yearly", priority: "0.7" },
   ];
 
