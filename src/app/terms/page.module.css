@@ -1,0 +1,96 @@
+.content {
+  padding: 80px 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.prose h2 {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-top: 48px;
+  margin-bottom: 16px;
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose p {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px;
+}
+
+.prose strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.lastUpdated {
+  margin-top: 64px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+}
+
+.cta {
+  padding: 120px 48px 160px;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ctaTitle {
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin: 0;
+  max-width: 20ch;
+}
+
+.alt {
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ctaLink {
+  margin-top: 20px;
+  padding: 16px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ctaLink:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 900px) {
+  .content,
+  .cta {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .cta {
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
+}
