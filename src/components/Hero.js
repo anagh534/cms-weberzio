@@ -1,6 +1,6 @@
 import styles from "./Hero.module.css";
 
-export default function Hero({ siteName = "weberzio", tagline = "UX/UI Designer" }) {
+export default function Hero({ siteName = "Weberzio", tagline = "Web & Mobile App Development" }) {
   return (
     <section id="top" className={styles.hero}>
       <div className={styles.glow} aria-hidden="true">
@@ -17,13 +17,13 @@ export default function Hero({ siteName = "weberzio", tagline = "UX/UI Designer"
           <span className={styles.titleLine}>
             <span className={styles.reveal}>We</span>{" "}
             <span className={styles.reveal}>build</span>{" "}
-            <span className={styles.reveal}>software</span>
+            <span className={styles.reveal}>Web & Mobile Apps</span>
           </span>
           <span className={styles.titleLine}>
             <span className={styles.reveal}>
               <span className={styles.outline}>that</span>
             </span>{" "}
-            <span className={styles.reveal}>scales</span>{" "}
+            <span className={styles.reveal}>scale</span>{" "}
             <span className={styles.reveal}>with</span>
           </span>
           <span className={styles.titleLine}>
@@ -44,9 +44,9 @@ export default function Hero({ siteName = "weberzio", tagline = "UX/UI Designer"
           </a>
 
           <p className={styles.description}>
-            A web development and software solutions team helping startups and
-            enterprises ship reliable products &mdash; from web apps and APIs
-            to cloud infrastructure and internal tools built for scale.
+            A premium web and mobile app development team in Kerala, India. We help startups and 
+            enterprises ship reliable products &mdash; from Flutter mobile apps and MERN stack websites 
+            to cloud infrastructure built for scale.
           </p>
         </div>
       </div>

@@ -5,8 +5,8 @@ import styles from "./About.module.css";
 const facts = [
   { label: "HQ", value: "Remote / Distributed" },
   { label: "Focus", value: "Web & Software" },
-  { label: "Founded", value: "2018" },
-  { label: "Availability", value: "Q3 · 2026" },
+  { label: "Founded", value: "2025" },
+  { label: "Availability", value: "24/7" },
 ];
 
 export default function About({ tagIndex = "02" }) {

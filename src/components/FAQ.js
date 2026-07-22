@@ -6,27 +6,27 @@ import styles from "./FAQ.module.css";
 const FAQS = [
   {
     q: "What kind of projects do you take on?",
-    a: "We build custom web applications, SaaS platforms, marketing sites, internal tools, and APIs. Typical engagements range from a focused two-week sprint to multi-quarter product builds — with startups, growing scale-ups, and enterprise product teams.",
+    a: "We build custom web applications, mobile apps (Flutter), SaaS platforms, marketing sites, internal tools, and APIs. As a full-stack development team, we work with startups and enterprises to build software that scales.",
   },
   {
     q: "Which technologies do you specialise in?",
-    a: "Our core stack is Next.js and React on the frontend, Node.js on the backend, and PostgreSQL or MongoDB for data. We regularly work with TypeScript, Tailwind, Prisma, Stripe, and deploy on Vercel, AWS, and Google Cloud.",
+    a: "Our core stack includes Next.js, React, Astro, Node.js (MERN stack) for web, and Flutter for cross-platform mobile apps. We also handle cloud infrastructure and DevOps on AWS and Google Cloud.",
+  },
+  {
+    q: "Where is your team based?",
+    a: "We are a premium web and mobile app development team based in Kerala, India. We partner with local and global clients, providing top-tier custom software solutions and technical consulting.",
   },
   {
     q: "How do you price a project?",
-    a: "Most work is scoped as a fixed-price milestone (for well-defined features) or a monthly retainer (for ongoing product engineering). We share a written proposal with scope, timeline, and pricing before any work begins.",
+    a: "Most work is scoped as a fixed-price milestone (for well-defined features like a React website or Flutter app) or a monthly retainer (for ongoing product engineering). We share a clear proposal before we begin.",
   },
   {
-    q: "How long does a typical build take?",
-    a: "A polished marketing site takes 2–4 weeks. A production MVP takes 6–12 weeks. Larger SaaS platforms run in three-month milestone blocks with continuous delivery from week one.",
+    q: "Do you offer web hosting and DevOps services?",
+    a: "Absolutely. Beyond custom software engineering, we manage cloud infrastructure, continuous deployment (DevOps), and ongoing web hosting to ensure your web applications run reliably and securely.",
   },
   {
     q: "Do you work with existing codebases?",
-    a: "Yes — we join existing teams, audit legacy applications, and take over stalled projects. We start with a short discovery phase to map the code, identify risks, and agree on the first shipping milestone.",
-  },
-  {
-    q: "How do we get started?",
-    a: "Send a note through the contact form with a short description of what you're building. We reply within one business day and set up a call to discuss scope, timeline, and next steps.",
+    a: "Yes — we frequently audit legacy applications, take over stalled projects, or help existing teams scale. We map the code, identify risks, and quickly ship the first milestone.",
   },
 ];
 
