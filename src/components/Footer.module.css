@@ -297,12 +297,34 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+}
+
+.brandLogo {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 .copy {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.45);
   letter-spacing: 0.02em;
+}
+
+.legalLink {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  margin-left: auto;
+  margin-right: 24px;
+}
+
+.legalLink:hover {
+  color: var(--text-primary);
 }
 
 .toTop {
@@ -401,6 +423,11 @@
     align-items: flex-start;
     gap: 14px;
     padding: 20px 20px 28px;
+  }
+
+  .legalLink {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .toTop {
