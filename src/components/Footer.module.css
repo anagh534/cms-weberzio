@@ -297,6 +297,14 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+}
+
+.brandLogo {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 .copy {

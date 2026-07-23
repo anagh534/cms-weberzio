@@ -101,7 +101,10 @@ export default function Footer({ siteName = "weberzio" }) {
       </div>
 
       <div className={styles.bottom}>
-        <span className={styles.brand}>{siteName}</span>
+        <span className={styles.brand}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/assets/uploads/16072026/light-6467f7f1.png" alt={siteName} className={styles.brandLogo} />
+        </span>
         <span className={styles.copy}>© {year} All rights reserved</span>
         <a href="/terms" className={styles.legalLink}>Terms &amp; Conditions</a>
         <button

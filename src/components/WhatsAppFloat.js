@@ -7,7 +7,6 @@ const PHONE = "918281571805";
 const MESSAGE = "Hi weberzio, I'd like to talk about a project.";
 
 export default function WhatsAppFloat() {
-  const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -18,69 +17,17 @@ export default function WhatsAppFloat() {
   const href = `https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`;
 
   return (
-    <div
-      className={`${styles.wrap} ${visible ? styles.visible : ""}`}
-      data-open={open}
-    >
-      {open && (
-        <div className={styles.card} role="dialog" aria-label="Chat on WhatsApp">
-          <div className={styles.cardHeader}>
-            <div className={styles.avatar} aria-hidden="true">
-              <WhatsAppGlyph />
-            </div>
-            <div className={styles.cardMeta}>
-              <span className={styles.cardName}>weberzio</span>
-              <span className={styles.cardStatus}>
-                <span className={styles.dot} aria-hidden="true" />
-                Typically replies within an hour
-              </span>
-            </div>
-            <button
-              type="button"
-              className={styles.cardClose}
-              onClick={() => setOpen(false)}
-              aria-label="Close chat"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div className={styles.cardBody}>
-            <div className={styles.bubble}>
-              <span className={styles.bubbleName}>weberzio</span>
-              Hi there  Have a project in mind or a question about our
-              services? Send us a message on WhatsApp — we&apos;ll get back to
-              you shortly.
-            </div>
-          </div>
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.cardCta}
-            onClick={() => setOpen(false)}
-          >
-            <WhatsAppGlyph small />
-            Start chat
-          </a>
-        </div>
-      )}
-
-      <button
-        type="button"
+    <div className={`${styles.wrap} ${visible ? styles.visible : ""}`}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
         className={styles.fab}
-        onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Close WhatsApp chat" : "Chat with us on WhatsApp"}
-        aria-expanded={open}
+        aria-label="Chat with us on WhatsApp"
       >
-        {open ? (
-          <span className={styles.fabClose} aria-hidden="true">×</span>
-        ) : (
-          <>
-            <WhatsAppGlyph />
-            <span className={styles.pulse} aria-hidden="true" />
-          </>
-        )}
-      </button>
+        <WhatsAppGlyph />
+        <span className={styles.pulse} aria-hidden="true" />
+      </a>
     </div>
   );
 }
