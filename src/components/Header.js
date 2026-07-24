@@ -13,7 +13,7 @@ const NAV_ITEMS = [
   { label: "Contact", href: "/contact" },
 ];
 
-export default function Header({ siteName = "weberzio", logoUrl = "/assets/uploads/16072026/light-6467f7f1.png" }) {
+export default function Header({ siteName = "Weberzio", logoUrl = "/assets/uploads/16072026/light-6467f7f1.png" }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (

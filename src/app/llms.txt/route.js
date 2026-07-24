@@ -27,7 +27,7 @@ const LLMS_CONTENT = `# Weberzio
 
 ## Pages
 
-- [Home](\${origin}/): weberzio builds reliable web applications, SaaS platforms, APIs, and cloud infrastructure for startups and enterprises.
+- [Home](\${origin}/): Weberzio builds reliable web applications, SaaS platforms, APIs, and cloud infrastructure for startups and enterprises.
 `;
 
 export async function GET() {
