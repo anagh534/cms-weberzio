@@ -171,8 +171,8 @@ export default function TermsPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Terms and Conditions", item: `${siteUrl}/terms` },
+      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": `${siteUrl}/`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 2, name: "Terms and Conditions", item: { "@id": `${siteUrl}/terms`, "@type": "WebPage" } },
     ],
   };
 

@@ -50,9 +50,9 @@ export default async function CaseStudyPage({ params }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Work", item: `${siteUrl}/work` },
-      { "@type": "ListItem", position: 3, name: item.title, item: `${siteUrl}/work/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": `${siteUrl}/`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 2, name: "Work", item: { "@id": `${siteUrl}/work`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 3, name: item.title, item: { "@id": `${siteUrl}/work/${slug}`, "@type": "WebPage" } },
     ],
   };
 

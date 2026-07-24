@@ -64,9 +64,9 @@ export default async function BlogPostPage({ params }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
-      { "@type": "ListItem", position: 3, name: post.title, item: `${siteUrl}/blog/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": `${siteUrl}/`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 2, name: "Blog", item: { "@id": `${siteUrl}/blog`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 3, name: post.title, item: { "@id": `${siteUrl}/blog/${slug}`, "@type": "WebPage" } },
     ],
   };
 

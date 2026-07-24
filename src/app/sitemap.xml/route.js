@@ -1,6 +1,7 @@
 import { buildSitemap } from "@/lib/seo-defaults";
 import { SERVICES } from "@/lib/services-data";
 import { CASE_STUDIES } from "@/lib/work-data";
+import { POSTS } from "@/lib/blog-data";
 
 export const dynamic = "force-static";
 
@@ -11,6 +12,7 @@ export async function GET() {
     { path: "/", changefreq: "weekly", priority: "1.0" },
     { path: "/services", changefreq: "monthly", priority: "0.9" },
     { path: "/about", changefreq: "monthly", priority: "0.8" },
+    { path: "/blog", changefreq: "weekly", priority: "0.8" },
     { path: "/contact", changefreq: "yearly", priority: "0.7" },
     { path: "/terms", changefreq: "yearly", priority: "0.3" },
   ];
@@ -27,10 +29,17 @@ export async function GET() {
     priority: "0.7",
   }));
 
+  const blogRoutes = POSTS.map((p) => ({
+    path: `/blog/${p.slug}`,
+    changefreq: "monthly",
+    priority: "0.7",
+  }));
+
   const body = buildSitemap(origin, [
     ...staticRoutes,
     ...serviceRoutes,
     ...caseStudyRoutes,
+    ...blogRoutes,
   ]);
 
   return new Response(body, {
