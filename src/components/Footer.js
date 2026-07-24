@@ -9,7 +9,7 @@ const FOOTER_MENU = [
   { label: "Contact", href: "/contact" },
 ];
 
-export default function Footer({ siteName = "weberzio" }) {
+export default function Footer({ siteName = "Weberzio" }) {
   const marqueeItems = Array.from({ length: 8 }, (_, i) => i);
   const year = new Date().getFullYear();
   const [email, setEmail] = useState("");

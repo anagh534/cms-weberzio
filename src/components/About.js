@@ -26,7 +26,7 @@ export default function About({ tagIndex = "02" }) {
       <div className={styles.body}>
         <div className={styles.copy}>
           <p>
-            We partner with founders, product teams, and enterprises to design
+            Weberzio partners with founders, product teams, and enterprises to design
             and build software that solves real problems. From early-stage
             MVPs to production-grade platforms, we own the full stack.
           </p>

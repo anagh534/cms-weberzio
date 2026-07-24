@@ -10,7 +10,7 @@ const siteName = "Weberzio";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export const metadata = {
-  title: `Web & Mobile App Development Services in Kerala, India | ${siteName}`,
+  title: { absolute: "Web & Mobile App Development Services | Weberzio Kerala" },
   description:
     "Weberzio provides expert Web & Mobile App Development, SaaS engineering, and cloud infrastructure. We leverage technologies like Flutter and the MERN Stack from Kerala, India, to empower startups and enterprises globally.",
   keywords:
@@ -35,8 +35,8 @@ export default async function ServicesPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
+      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": `${siteUrl}/`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 2, name: "Services", item: { "@id": `${siteUrl}/services`, "@type": "WebPage" } },
     ],
   };
 

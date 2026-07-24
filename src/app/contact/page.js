@@ -4,11 +4,11 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 
-const siteName = "weberzio";
+const siteName = "Weberzio";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export const metadata = {
-  title: `Contact — ${siteName}`,
+  title: { absolute: "Contact Weberzio | Start Your Web & Mobile App Project" },
   description:
     `Start a project with ${siteName}. Web development, SaaS engineering, and technical consulting inquiries — we reply within one business day.`,
   keywords: "contact, hire developer, project inquiry, web development",
@@ -28,8 +28,8 @@ export default async function ContactPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Contact", item: `${siteUrl}/contact` },
+      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": `${siteUrl}/`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 2, name: "Contact", item: { "@id": `${siteUrl}/contact`, "@type": "WebPage" } },
     ],
   };
 

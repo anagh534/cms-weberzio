@@ -91,7 +91,8 @@ export default async function RootLayout({ children }) {
   const organizationLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: s.siteName,
+    name: "Weberzio",
+    alternateName: ["weberzio", "Weberzio Web Agency", "Weberzio Technologies"],
     url: origin,
     description: s.homeDescription,
     address: {
@@ -110,7 +111,7 @@ export default async function RootLayout({ children }) {
   const websiteLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: s.siteName,
+    name: "Weberzio",
     url: origin,
     description: s.homeDescription,
   };

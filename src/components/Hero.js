@@ -16,8 +16,8 @@ export default function Hero({ siteName = "Weberzio", tagline = "Web & Mobile Ap
 
         <h1 className={styles.title}>
           <span className={styles.titleLine}>
-            <span className={styles.reveal}>We</span>{" "}
-            <span className={styles.reveal}>build</span>{" "}
+            <span className={styles.reveal}>{siteName}</span>{" "}
+            <span className={styles.reveal}>builds</span>{" "}
             <span className={styles.reveal}>Web & Mobile Apps</span>
           </span>
           <span className={styles.titleLine}>

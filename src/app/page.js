@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { SERVICES } from "@/lib/services-data";
 
-const siteName = "weberzio";
+const siteName = "Weberzio";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export default async function Home() {

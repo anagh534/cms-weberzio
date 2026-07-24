@@ -9,7 +9,7 @@ import styles from "./page.module.css";
 const siteName = "Weberzio";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
-const title = `Blog — ${siteName}`;
+const title = { absolute: "Web Development Blog & Engineering Insights | Weberzio" };
 const description = `Notes, guides, and case studies from the ${siteName} team on web development, product design, and shipping software that actually works.`;
 
 export const metadata = {
@@ -32,8 +32,8 @@ export default function BlogPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": `${siteUrl}/`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 2, name: "Blog", item: { "@id": `${siteUrl}/blog`, "@type": "WebPage" } },
     ],
   };
 

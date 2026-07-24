@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
   const service = getServiceBySlug(slug);
   if (!service) return { title: `Service not found — ${siteName}` };
   
-  const title = `${service.title} | Web & Mobile App Development — ${siteName}`;
+  const title = { absolute: `${service.title} Services | Weberzio` };
   const description = `${service.description} Partner with ${siteName} in Kerala, India, for specialized solutions in SaaS, Flutter, and the MERN Stack.`;
   
   const keywordsSet = new Set([
@@ -56,9 +56,9 @@ export default async function ServiceSlugPage({ params }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
-      { "@type": "ListItem", position: 3, name: service.title, item: `${siteUrl}/services/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": `${siteUrl}/`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 2, name: "Services", item: { "@id": `${siteUrl}/services`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 3, name: service.title, item: { "@id": `${siteUrl}/services/${slug}`, "@type": "WebPage" } },
     ],
   };
 

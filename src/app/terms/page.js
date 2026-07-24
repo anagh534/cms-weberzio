@@ -9,7 +9,7 @@ const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").repl
 const supportEmail = "support@weberzio.in";
 const lastUpdated = "July 2026";
 
-const title = `Terms and Conditions — ${siteName}`;
+const title = { absolute: "Terms & Conditions | Weberzio Web Development Agency" };
 const description =
   `Read the terms and conditions that govern your use of ${siteName}'s website and services, including post-launch support, source code, server handover, intellectual property, and liability.`;
 
@@ -171,8 +171,8 @@ export default function TermsPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Terms and Conditions", item: `${siteUrl}/terms` },
+      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": `${siteUrl}/`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 2, name: "Terms and Conditions", item: { "@id": `${siteUrl}/terms`, "@type": "WebPage" } },
     ],
   };
 

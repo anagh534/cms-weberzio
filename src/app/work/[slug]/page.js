@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { CASE_STUDIES, getCaseStudyBySlug } from "@/lib/work-data";
 
-const siteName = "weberzio";
+const siteName = "Weberzio";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export async function generateStaticParams() {
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const item = getCaseStudyBySlug(slug);
   if (!item) return { title: `Case study not found — ${siteName}` };
-  const title = `${item.title} — ${siteName}`;
+  const title = { absolute: `${item.title} | Case Study | Weberzio` };
   const description = item.summary || item.meta || undefined;
   const image = item.imageUrl || undefined;
   return {
@@ -50,9 +50,9 @@ export default async function CaseStudyPage({ params }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Work", item: `${siteUrl}/work` },
-      { "@type": "ListItem", position: 3, name: item.title, item: `${siteUrl}/work/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": `${siteUrl}/`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 2, name: "Work", item: { "@id": `${siteUrl}/work`, "@type": "WebPage" } },
+      { "@type": "ListItem", position: 3, name: item.title, item: { "@id": `${siteUrl}/work/${slug}`, "@type": "WebPage" } },
     ],
   };
 

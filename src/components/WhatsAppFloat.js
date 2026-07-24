@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import styles from "./WhatsAppFloat.module.css";
 
-const PHONE = "918281571805";
-const MESSAGE = "Hi weberzio, I'd like to talk about a project.";
+const PHONE_NUMBER = "918281571805"; // Your WhatsApp number without '+'
+const MESSAGE = "Hi Weberzio, I'd like to talk about a project.";
 
 export default function WhatsAppFloat() {
   const [visible, setVisible] = useState(false);
@@ -14,7 +14,7 @@ export default function WhatsAppFloat() {
     return () => clearTimeout(t);
   }, []);
 
-  const href = `https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`;
+  const href = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(MESSAGE)}`;
 
   return (
     <div className={`${styles.wrap} ${visible ? styles.visible : ""}`}>
