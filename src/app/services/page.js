@@ -7,6 +7,7 @@ import JsonLd from "@/components/JsonLd";
 import { SERVICES } from "@/lib/services-data";
 
 const siteName = "Weberzio";
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export const metadata = {
   title: `Web & Mobile App Development Services in Kerala, India | ${siteName}`,
@@ -34,8 +35,8 @@ export default async function ServicesPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "/services" },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
     ],
   };
 
@@ -48,7 +49,7 @@ export default async function ServicesPage() {
       position: i + 1,
       name: svc.title,
       description: svc.description,
-      url: `/services/${svc.slug}`,
+      url: `${siteUrl}/services/${svc.slug}`,
     })),
   };
 

@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import { SERVICES, getServiceBySlug } from "@/lib/services-data";
 
 const siteName = "Weberzio";
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export async function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -55,9 +56,9 @@ export default async function ServiceSlugPage({ params }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "/services" },
-      { "@type": "ListItem", position: 3, name: service.title, item: `/services/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
+      { "@type": "ListItem", position: 3, name: service.title, item: `${siteUrl}/services/${slug}` },
     ],
   };
 

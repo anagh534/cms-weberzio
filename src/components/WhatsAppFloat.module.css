@@ -1,0 +1,224 @@
+.wrap {
+  position: fixed;
+  right: 20px;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 800;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.wrap.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Floating button */
+.fab {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: #25D366;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4),
+              0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.fab:hover {
+  transform: scale(1.06);
+  background: #1fbd5a;
+  box-shadow: 0 16px 40px rgba(37, 211, 102, 0.5),
+              0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.fab:active {
+  transform: scale(0.98);
+}
+
+.fabClose {
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+/* Pulse ring */
+.pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  animation: pulse 2.2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+.wrap[data-open="true"] .pulse { display: none; }
+
+/* Chat card */
+.card {
+  width: 320px;
+  background: #0f1120;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5),
+              0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: cardIn 0.28s cubic-bezier(0.33, 1, 0.68, 1);
+  transform-origin: bottom right;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.cardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.cardName {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.cardStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b3ffbd;
+  box-shadow: 0 0 0 2px rgba(179, 255, 189, 0.3);
+}
+
+.cardClose {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.cardClose:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.cardBody {
+  padding: 20px 16px 12px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(37, 211, 102, 0.04), transparent 60%),
+    #0f1120;
+}
+
+.bubble {
+  position: relative;
+  background: #1a1d33;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 12px 14px;
+  border-radius: 4px 14px 14px 14px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  max-width: 90%;
+}
+
+.bubbleName {
+  display: block;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #25D366;
+  margin-bottom: 4px;
+}
+
+.cardCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: background 0.2s ease;
+}
+
+.cardCta:hover {
+  background: #1fbd5a;
+}
+
+@media (max-width: 560px) {
+  .wrap {
+    right: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+
+  .fab {
+    width: 56px;
+    height: 56px;
+  }
+
+  .card {
+    width: calc(100vw - 32px);
+    max-width: 340px;
+  }
+}

@@ -10,6 +10,7 @@ import JsonLd from "@/components/JsonLd";
 import { SERVICES } from "@/lib/services-data";
 
 const siteName = "weberzio";
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export default async function Home() {
   const servicesLd = {
@@ -21,7 +22,7 @@ export default async function Home() {
       position: i + 1,
       name: s.title,
       description: s.description,
-      url: `/services/${s.slug}`,
+      url: `${siteUrl}/services/${s.slug}`,
     })),
   };
 

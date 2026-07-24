@@ -1,12 +1,12 @@
 import { Sora } from "next/font/google";
 import Script from "next/script";
 import CursorDot from "@/components/CursorDot";
-// import TawkChat from "@/components/TawkChat";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import JsonLd from "@/components/JsonLd";
 import { getSiteSettings } from "@/lib/site-data";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in";
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export async function generateViewport() {
   const s = await getSiteSettings();
@@ -133,7 +133,7 @@ export default async function RootLayout({ children }) {
         </Script>
         <CursorDot />
         {children}
-        {/* <TawkChat /> */}
+        <WhatsAppFloat />
         <JsonLd data={organizationLd} />
         <JsonLd data={websiteLd} />
       </body>

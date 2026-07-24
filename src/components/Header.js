@@ -9,10 +9,11 @@ const NAV_ITEMS = [
   { label: "Services", href: "/services" },
   { label: "Work", href: "/#work" },
   { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
-export default function Header({ siteName = "weberzio", logoUrl = "" }) {
+export default function Header({ siteName = "weberzio", logoUrl = "/assets/uploads/16072026/light-6467f7f1.png" }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (

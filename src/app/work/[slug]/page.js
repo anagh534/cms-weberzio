@@ -7,6 +7,7 @@ import JsonLd from "@/components/JsonLd";
 import { CASE_STUDIES, getCaseStudyBySlug } from "@/lib/work-data";
 
 const siteName = "weberzio";
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export async function generateStaticParams() {
   return CASE_STUDIES.map((c) => ({ slug: c.slug }));
@@ -49,9 +50,9 @@ export default async function CaseStudyPage({ params }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-      { "@type": "ListItem", position: 2, name: "Work", item: "/#work" },
-      { "@type": "ListItem", position: 3, name: item.title, item: `/work/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Work", item: `${siteUrl}/work` },
+      { "@type": "ListItem", position: 3, name: item.title, item: `${siteUrl}/work/${slug}` },
     ],
   };
 

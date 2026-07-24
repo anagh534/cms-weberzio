@@ -12,6 +12,7 @@ export async function GET() {
     { path: "/services", changefreq: "monthly", priority: "0.9" },
     { path: "/about", changefreq: "monthly", priority: "0.8" },
     { path: "/contact", changefreq: "yearly", priority: "0.7" },
+    { path: "/terms", changefreq: "yearly", priority: "0.3" },
   ];
 
   const serviceRoutes = SERVICES.map((s) => ({
