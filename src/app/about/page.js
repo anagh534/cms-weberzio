@@ -9,7 +9,7 @@ import styles from "./page.module.css";
 const siteName = "Weberzio";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
-const title = `About ${siteName} — Web & Mobile App Development Company in Kerala`;
+const title = { absolute: "About Weberzio | Web & Mobile App Development Agency Kerala" };
 const description =
   `Based in Kerala, India, ${siteName} is a premium engineering studio specializing in web and mobile app development. We build scalable SaaS products and platforms using Flutter, Next.js, and the MERN stack for clients globally.`;
 const keywords =

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
   const service = getServiceBySlug(slug);
   if (!service) return { title: `Service not found — ${siteName}` };
   
-  const title = `${service.title} | Web & Mobile App Development — ${siteName}`;
+  const title = { absolute: `${service.title} Services | Weberzio` };
   const description = `${service.description} Partner with ${siteName} in Kerala, India, for specialized solutions in SaaS, Flutter, and the MERN Stack.`;
   
   const keywordsSet = new Set([

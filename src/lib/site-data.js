@@ -1,7 +1,7 @@
 const DEFAULT_SETTINGS = {
   siteName: "Weberzio",
   tagline: "Web & Mobile App Development Company in Kerala",
-  homeTitle: "Weberzio - Best Website & Mobile App Development Company in Kerala",
+  homeTitle: "Weberzio | Web & Mobile App Development Company in Kerala",
   homeDescription:
     "Weberzio is a top-rated web and mobile app development company in Kerala offering affordable e-commerce website solutions in Kochi, custom web application development in Trivandrum, and responsive web design in Calicut. We build custom software solutions, SaaS platforms, Flutter mobile apps, and APIs.",
   keywords:

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
   const post = getPostBySlug(slug);
   if (!post) return { title: `Post not found — ${siteName}` };
 
-  const title = post.title;
+  const title = { absolute: `${post.title} | Weberzio` };
   const description = post.excerpt;
 
   return {

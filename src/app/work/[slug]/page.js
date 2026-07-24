@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const item = getCaseStudyBySlug(slug);
   if (!item) return { title: `Case study not found — ${siteName}` };
-  const title = `${item.title} — ${siteName}`;
+  const title = { absolute: `${item.title} | Case Study | Weberzio` };
   const description = item.summary || item.meta || undefined;
   const image = item.imageUrl || undefined;
   return {

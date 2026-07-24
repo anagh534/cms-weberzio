@@ -8,7 +8,7 @@ const siteName = "Weberzio";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export const metadata = {
-  title: `Contact — ${siteName}`,
+  title: { absolute: "Contact Weberzio | Start Your Web & Mobile App Project" },
   description:
     `Start a project with ${siteName}. Web development, SaaS engineering, and technical consulting inquiries — we reply within one business day.`,
   keywords: "contact, hire developer, project inquiry, web development",
