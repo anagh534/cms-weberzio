@@ -7,7 +7,7 @@ import { SERVICES } from "@/lib/services-data";
 import styles from "./page.module.css";
 
 const siteName = "Weberzio";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in";
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 const title = `About ${siteName} — Web & Mobile App Development Company in Kerala`;
 const description =

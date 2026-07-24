@@ -8,7 +8,7 @@ import { POSTS, getPostBySlug } from "@/lib/blog-data";
 import styles from "./page.module.css";
 
 const siteName = "Weberzio";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in";
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export async function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));

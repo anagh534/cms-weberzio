@@ -8,7 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import { SERVICES, getServiceBySlug } from "@/lib/services-data";
 
 const siteName = "Weberzio";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in";
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
 
 export async function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
