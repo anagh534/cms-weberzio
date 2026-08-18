@@ -4,26 +4,14 @@ import styles from "./Work.module.css";
 
 const ITEMS = [
   {
-    slug: "nova-saas-platform",
-    title: "Nova — SaaS Platform",
-    meta: "web app / product engineering",
-    year: "2025",
-    tags: ["Next.js", "TypeScript", "Postgres"],
-  },
-  {
-    slug: "halcyon-fintech-api",
-    title: "Halcyon — FinTech API",
-    meta: "backend / integrations",
-    year: "2025",
-    tags: ["Node.js", "Stripe", "GraphQL"],
-  },
-  {
-    slug: "prism-ecommerce-suite",
-    title: "Prism — E-commerce Suite",
-    meta: "full stack / commerce",
-    year: "2024",
-    tags: ["Shopify", "Headless", "React"],
-  },
+    slug: "Theliv - Investment Platform",
+    title: "Theliv — Investment Platform",
+    meta: "A platform for investors to manage their portfolios and track performance. founders can also manage their investors and track their investments.",
+    year: "2026",
+    tags: ["Node.js", "MongoDB", "Next.js", "TypeScript", "Postgres"],
+    imageUrl: "/theliv.png",
+    url: "http://www.theliv.co.uk/", // optional
+  }
 ];
 
 export default function Work({ tagIndex = "02" }) {
@@ -54,7 +42,9 @@ export default function Work({ tagIndex = "02" }) {
         {visible.map((item, i) => (
           <a
             key={item.slug}
-            href={item.slug ? `/work/${item.slug}` : "#"}
+            href={item.url ? item.url : (item.slug ? `/work/${item.slug}` : "#")}
+            target={item.url ? "_blank" : undefined}
+            rel={item.url ? "noopener noreferrer" : undefined}
             className={styles.card}
             style={{ "--i": i }}
           >
