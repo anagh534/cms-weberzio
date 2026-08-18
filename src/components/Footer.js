@@ -58,6 +58,9 @@ export default function Footer({ siteName = "Weberzio" }) {
 
         <div className={styles.col}>
           <h3 className={styles.colTitle}>Say Hello</h3>
+          <a href="tel:+918281571805" className={styles.colLink}>
+            +91 8281 571 805
+          </a>
           <a href="mailto:support@weberzio.in" className={styles.colLink}>
             support@weberzio.in
           </a>
