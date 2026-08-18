@@ -36,34 +36,36 @@ const ITEMS = [
     meta: "A platform for dance academy to manage their students and classes. It is a multi-instructor platform where instructors can manage their classes and students can enroll in them.",
     year: "2025",
     tags: ["HTML", "CSS", "JavaScript", "Google Sheets Api", "GitHub Pages"],
-    imageUrl: "/bhavayami-nritalaya-900.webp",
+    imageUrl: "/bhavayami-900.webp",
     url: "https://www.bhavayaminritalaya.in/", // optional
   }
 ];
 
-export default function Work({ tagIndex = "02" }) {
+export default function Work({ tagIndex = "02", showAll = false }) {
   // Show only the first 3 — the 4th slot is the CTA tile
-  const visible = ITEMS.slice(0, 3);
+  const visible = showAll ? ITEMS : ITEMS.slice(0, 3);
 
   return (
     <section id="work" className={styles.section}>
-      <header className={styles.header}>
-        <div className={styles.headerLeft}>
-          <span className={styles.tag}>
-            <span className={styles.tagIndex}>{tagIndex}</span>
-            Case Study
-          </span>
-          <h2 className={styles.title}>
-            Our work: <span className={styles.titleAlt}>from</span>
-            <br />
-            discovery to launch
-          </h2>
-        </div>
-        <a href="/work" className={styles.viewAll}>
-          View All Projects
-          <span className={styles.viewAllArrow} aria-hidden="true" />
-        </a>
-      </header>
+      {!showAll && (
+        <header className={styles.header}>
+          <div className={styles.headerLeft}>
+            <span className={styles.tag}>
+              <span className={styles.tagIndex}>{tagIndex}</span>
+              Case Study
+            </span>
+            <h2 className={styles.title}>
+              Our work: <span className={styles.titleAlt}>from</span>
+              <br />
+              discovery to launch
+            </h2>
+          </div>
+          <a href="/work" className={styles.viewAll}>
+            View All Projects
+            <span className={styles.viewAllArrow} aria-hidden="true" />
+          </a>
+        </header>
+      )}
 
       <div className={styles.grid}>
         {visible.map((item, i) => (
