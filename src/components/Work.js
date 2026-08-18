@@ -10,6 +10,7 @@ const ITEMS = [
     year: "2026",
     tags: ["Node.js", "MongoDB", "Next.js", "TypeScript", "Postgres"],
     imageUrl: "/theliv.png",
+    url: "http://www.theliv.co.uk/", // optional
   }
 ];
 
@@ -41,7 +42,9 @@ export default function Work({ tagIndex = "02" }) {
         {visible.map((item, i) => (
           <a
             key={item.slug}
-            href={item.slug ? `/work/${item.slug}` : "#"}
+            href={item.url ? item.url : (item.slug ? `/work/${item.slug}` : "#")}
+            target={item.url ? "_blank" : undefined}
+            rel={item.url ? "noopener noreferrer" : undefined}
             className={styles.card}
             style={{ "--i": i }}
           >
