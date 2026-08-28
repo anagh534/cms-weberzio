@@ -123,9 +123,9 @@ export default function Header() {
         <Link
           href="/"
           data-frame-logo
-          className="pointer-events-auto relative flex h-[var(--frame-top)] items-center gap-2.5 pl-6 pr-7 text-white sm:pl-8"
+          className="pointer-events-auto relative flex h-[var(--frame-top)] items-center gap-2.5 pl-6 pr-2 text-white sm:pl-8"
         >
-          <span className="grid grid-cols-2 gap-[2px]" aria-hidden="true">
+          {/* <span className="grid grid-cols-2 gap-[2px]" aria-hidden="true">
             <span className="h-[7px] w-[7px] rounded-[2px] bg-[#f5c451]" />
             <span className="h-[7px] w-[7px] rounded-[2px] bg-[#4aa3f0]" />
             <span className="h-[7px] w-[7px] rounded-[2px] bg-[#8b93f8]" />
@@ -134,7 +134,8 @@ export default function Header() {
           <span className="text-[19px] tracking-tight">
             <span className="font-bold">weber</span>
             <span className="font-light">zio</span>
-          </span>
+          </span> */}
+          <img src="/Weberzio.svg" alt="WeberZio" className="h-6 sm:h-8" />
         </Link>
 
         <div data-frame-nav

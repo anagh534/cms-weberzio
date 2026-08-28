@@ -110,13 +110,15 @@ export default function Footer() {
   }, [pathname]);
 
   return (
-    <footer ref={root} className="border-t border-white/10 bg-black px-5 py-16 sm:px-8">
+    <footer
+      ref={root}
+      className="border-t border-white/10 bg-black px-5 py-16 sm:px-8"
+    >
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div data-footer-col>
             <p className="text-[19px] tracking-tight">
-              <span className="font-bold">weber</span>
-              <span className="font-light">zio</span>
+              <img src="/Weberzio.svg" alt="WeberZio" className="h-6 sm:h-8" />
             </p>
             <p className="mt-3 max-w-xs font-body text-[13.5px] leading-relaxed text-white/50">
               {site.tagline}. A remote engineering studio building web and
@@ -126,7 +128,9 @@ export default function Footer() {
 
           {columns.map((column) => (
             <div key={column.title} data-footer-col>
-              <p className="text-[13px] font-semibold text-white">{column.title}</p>
+              <p className="text-[13px] font-semibold text-white">
+                {column.title}
+              </p>
               <ul className="mt-4 space-y-2.5">
                 {column.links.map((link) => (
                   <li key={link.label}>
