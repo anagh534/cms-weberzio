@@ -1,142 +1,117 @@
-import { Sora } from "next/font/google";
-import Script from "next/script";
-import CursorDot from "@/components/CursorDot";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
-import JsonLd from "@/components/JsonLd";
-import { getSiteSettings } from "@/lib/site-data";
 import "./globals.css";
+import { manrope } from "./fonts";
+import { site, contact } from "@/data/site";
+import Frame from "@/components/layout/Frame";
+import SmoothScroll from "@/components/layout/SmoothScroll";
+import Header from "@/components/landing/Header";
+import Footer from "@/components/landing/Footer";
+import CookieBanner from "@/components/landing/CookieBanner";
+import JsonLd, { ORG_ID } from "@/components/seo/JsonLd";
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
-
-export async function generateViewport() {
-  const s = await getSiteSettings();
-  return {
-    width: "device-width",
-    initialScale: 1,
-    themeColor: s.themeColor,
-  };
-}
-
-const sora = Sora({
-  variable: "--font-sora",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-export async function generateMetadata() {
-  const s = await getSiteSettings();
-  const homePage = s.pages?.home || {};
-
-  const origin = siteUrl;
-  const title = homePage.title || s.homeTitle || s.siteName;
-  const description =
-    homePage.description || s.homeDescription;
-  const keywords = homePage.keywords || s.keywords;
-  const ogImage = homePage.ogImage || s.ogImageUrl;
-
-  return {
-    metadataBase: new URL(origin),
-    title: {
-      default: title,
-      template: `%s — ${s.siteName}`,
-    },
-    description,
-    keywords: keywords || undefined,
-    applicationName: s.siteName,
-    authors: [{ name: s.siteName }],
-    creator: s.siteName,
-    publisher: s.siteName,
-    alternates: {
-      canonical: origin,
-    },
-    robots: {
+export const metadata = {
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.name} — ${site.tagline}`,
+    template: `%s | ${site.name}`,
+  },
+  description: site.description,
+  keywords: [
+    "AI native software development",
+    "software development company Kerala",
+    "web development company Kerala",
+    "mobile app development Kerala",
+    "Flutter app development",
+    "SaaS development",
+    "Next.js development",
+    "ecommerce website development Kerala",
+    "API and backend systems",
+  ],
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
       index: true,
       follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: site.name,
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+    url: site.url,
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+    images: ["/og.png"],
+  },
+};
+
+/** Sitewide entity graph: who Weberzio is, once, referenced from every page. */
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": ORG_ID,
+      name: site.name,
+      url: site.url,
+      logo: `${site.url}/star.png`,
+      description: site.description,
+      email: contact.email,
+      telephone: contact.phone,
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "Kerala",
+        addressCountry: "IN",
+      },
+      areaServed: ["IN", "Worldwide"],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: contact.email,
+        telephone: contact.phone,
+        availableLanguage: ["English"],
       },
     },
-    openGraph: {
-      title,
-      description,
-      url: origin,
-      siteName: s.siteName,
-      images: ogImage ? [ogImage] : undefined,
-      type: "website",
-      locale: "en_US",
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      name: site.name,
+      url: site.url,
+      publisher: { "@id": ORG_ID },
+      inLanguage: "en",
     },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: ogImage ? [ogImage] : undefined,
-      creator: s.twitterHandle ? `@${s.twitterHandle}` : undefined,
-    },
-    formatDetection: {
-      email: false,
-      address: false,
-      telephone: false,
-    },
-  };
-}
+  ],
+};
 
-export default async function RootLayout({ children }) {
-  const s = await getSiteSettings();
-  const origin = siteUrl;
-
-  const organizationLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Weberzio",
-    alternateName: ["weberzio", "Weberzio Web Agency", "Weberzio Technologies"],
-    url: origin,
-    description: s.homeDescription,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Kerala",
-      addressCountry: "IN"
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+91-8281571805",
-      contactType: "customer support",
-      email: "support@weberzio.in"
-    }
-  };
-
-  const websiteLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Weberzio",
-    url: origin,
-    description: s.homeDescription,
-  };
-
+export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${sora.variable}`}>
-      <body>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-QJB16WRWKF"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+    <html lang="en" className={manrope.variable}>
+      <body className="bg-black font-body text-white antialiased">
+        <JsonLd data={organizationSchema} />
 
-            gtag('config', 'G-QJB16WRWKF');
-          `}
-        </Script>
-        <CursorDot />
-        {children}
-        <WhatsAppFloat />
-        <JsonLd data={organizationLd} />
-        <JsonLd data={websiteLd} />
+        {/* Without JS the GSAP entrance never runs, so reveal the hero outright. */}
+        <noscript>
+          <style>{`[data-hero-line],[data-hero-copy],[data-hero-cta]{opacity:1 !important}`}</style>
+        </noscript>
+
+        <SmoothScroll />
+        <Frame>
+          <div id="top" className="relative">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
+          <CookieBanner />
+        </Frame>
       </body>
     </html>
   );

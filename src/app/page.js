@@ -1,44 +1,39 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Highlights from "@/components/Highlights";
-import Work from "@/components/Work";
-import Testimonials from "@/components/Testimonials";
-import About from "@/components/About";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
-import JsonLd from "@/components/JsonLd";
-import { SERVICES } from "@/lib/services-data";
+import Hero from "@/components/landing/Hero";
+import Stats from "@/components/landing/Stats";
+import Adventure from "@/components/landing/Adventure";
+import Services from "@/components/landing/Services";
+import ChangingDev from "@/components/landing/ChangingDev";
+import Work from "@/components/landing/Work";
+import Testimonials from "@/components/landing/Testimonials";
+import Faq from "@/components/landing/Faq";
+import CTA from "@/components/landing/CTA";
+import JsonLd from "@/components/seo/JsonLd";
+import { faqs } from "@/data/faq";
 
-const siteName = "Weberzio";
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
+/* Mirrors the visible FAQ section so answers can surface in rich results. */
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 
-export default async function Home() {
-  const servicesLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: `Services offered by ${siteName}`,
-    itemListElement: SERVICES.map((s, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: s.title,
-      description: s.description,
-      url: `${siteUrl}/services/${s.slug}`,
-    })),
-  };
-
+export default function Home() {
   return (
     <>
-      <Header />
-      <main>
-        <Hero />
-        <About tagIndex="01" />
-        <Highlights tagIndex="02" />
-        <Work tagIndex="03" />
-        <Testimonials tagIndex="04" />
-        <FAQ tagIndex="05" />
-      </main>
-      <Footer />
-      <JsonLd data={servicesLd} />
+      <JsonLd data={faqSchema} />
+      <Hero />
+      <Stats />
+      <Adventure />
+      <Services />
+      <ChangingDev />
+      <Work />
+      <Testimonials />
+      <Faq />
+      <CTA />
     </>
   );
 }

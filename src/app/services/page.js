@@ -1,75 +1,45 @@
-import Header from "@/components/Header";
-import PageHero from "@/components/PageHero";
-import ServicesGrid from "@/components/ServicesGrid";
-import Process from "@/components/Process";
-import Footer from "@/components/Footer";
-import JsonLd from "@/components/JsonLd";
-import { SERVICES } from "@/lib/services-data";
-
-const siteName = "Weberzio";
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
+import PageHeader from "@/components/landing/PageHeader";
+import { ServiceCards } from "@/components/landing/Services";
+import Process from "@/components/landing/Process";
+import CTA from "@/components/landing/CTA";
 
 export const metadata = {
-  title: { absolute: "Web & Mobile App Development Services | Weberzio Kerala" },
+  title: "Web & Mobile App Development Services",
   description:
-    "Weberzio provides expert Web & Mobile App Development, SaaS engineering, and cloud infrastructure. We leverage technologies like Flutter and the MERN Stack from Kerala, India, to empower startups and enterprises globally.",
-  keywords:
-    "Web & Mobile App Development, SaaS, Flutter, MERN Stack, Kerala, India, Next.js, React, Node.js, cloud infrastructure, API",
+    "Web applications, SaaS platforms, APIs, cloud infrastructure, and the technical guidance to keep it all moving forward.",
   alternates: { canonical: "/services" },
-  openGraph: {
-    title: `Web & Mobile App Development Services in Kerala, India | ${siteName}`,
-    description:
-      "Weberzio provides expert Web & Mobile App Development, SaaS engineering, and cloud infrastructure. We leverage technologies like Flutter and the MERN Stack from Kerala, India, to empower startups and enterprises globally.",
-    url: "/services",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `Web & Mobile App Development Services | ${siteName}`,
-    description: "Weberzio provides expert Web & Mobile App Development, SaaS engineering, and cloud infrastructure using Flutter and MERN Stack from Kerala, India."
-  },
 };
 
-export default async function ServicesPage() {
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": `${siteUrl}/`, "@type": "WebPage" } },
-      { "@type": "ListItem", position: 2, name: "Services", item: { "@id": `${siteUrl}/services`, "@type": "WebPage" } },
-    ],
-  };
-
-  const servicesLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: `Services offered by ${siteName}`,
-    itemListElement: SERVICES.map((svc, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: svc.title,
-      description: svc.description,
-      url: `${siteUrl}/services/${svc.slug}`,
-    })),
-  };
-
+export default function ServicesPage() {
   return (
     <>
-      <Header />
-      <main>
-        <PageHero
-          eyebrow="Services"
-          eyebrowIndex="01"
-          title="Services"
-          titleAlt="we offer."
-          description="Web applications, SaaS platforms, APIs, cloud infrastructure, and the technical guidance to keep it all moving forward."
-        />
-        <ServicesGrid tagIndex="02" />
-        <Process tagIndex="03" />
-      </main>
-      <Footer />
-      <JsonLd data={breadcrumbLd} />
-      <JsonLd data={servicesLd} />
+      <PageHeader
+        eyebrow="Services"
+        title="Software development services in Kerala."
+        intro="Web applications, SaaS platforms, APIs, cloud infrastructure, and the technical guidance to keep it all moving forward."
+      />
+
+      <section className="bg-neutral-100 px-5 py-24 sm:px-8 sm:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-14 max-w-2xl">
+            <p className="font-body text-[12px] uppercase tracking-[0.16em] text-neutral-400">
+              What we do
+            </p>
+            <h2 className="mt-4 text-[28px] font-semibold leading-tight tracking-tight text-neutral-900 sm:text-[36px]">
+              End-to-end engineering, done well.
+            </h2>
+            <p className="mt-4 font-body text-[15px] leading-relaxed text-neutral-500">
+              We work with founders, product teams, and enterprises across the
+              web stack. Every engagement is scoped to the outcome, not the
+              hours.
+            </p>
+          </div>
+          <ServiceCards />
+        </div>
+      </section>
+
+      <Process />
+      <CTA />
     </>
   );
 }

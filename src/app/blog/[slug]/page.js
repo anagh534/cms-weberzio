@@ -1,171 +1,167 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Header from "@/components/Header";
-import PageHero from "@/components/PageHero";
-import Footer from "@/components/Footer";
-import JsonLd from "@/components/JsonLd";
-import { POSTS, getPostBySlug } from "@/lib/blog-data";
-import styles from "./page.module.css";
 
-const siteName = "Weberzio";
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://weberzio.in").replace(/\/+$/, '');
+import CTA from "@/components/landing/CTA";
+import JsonLd, { ORG_ID, breadcrumbs } from "@/components/seo/JsonLd";
+import { posts, getPost } from "@/data/posts";
+import { site } from "@/data/site";
 
-export async function generateStaticParams() {
-  return POSTS.map((p) => ({ slug: p.slug }));
+export function generateStaticParams() {
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
-  if (!post) return { title: `Post not found — ${siteName}` };
+  const post = getPost(slug);
 
-  const title = { absolute: `${post.title} | Weberzio` };
-  const description = post.excerpt;
+  if (!post) return {};
 
   return {
-    title,
-    description,
-    alternates: { canonical: `/blog/${slug}` },
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
-      title,
-      description,
-      url: `/blog/${slug}`,
+      title: post.title,
+      description: post.excerpt,
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
     },
-    twitter: { card: "summary_large_image", title, description },
   };
 }
 
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = getPost(slug);
+
   if (!post) notFound();
 
-  const related = POSTS.filter((p) => p.slug !== slug).slice(0, 2);
+  const others = posts.filter((item) => item.slug !== post.slug);
 
-  const articleLd = {
+  const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    author: { "@type": "Person", name: post.author },
     datePublished: post.date,
-    url: `${siteUrl}/blog/${slug}`,
-    publisher: {
-      "@type": "Organization",
-      name: siteName,
-      url: siteUrl,
-    },
-  };
-
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: { "@id": `${siteUrl}/`, "@type": "WebPage" } },
-      { "@type": "ListItem", position: 2, name: "Blog", item: { "@id": `${siteUrl}/blog`, "@type": "WebPage" } },
-      { "@type": "ListItem", position: 3, name: post.title, item: { "@id": `${siteUrl}/blog/${slug}`, "@type": "WebPage" } },
-    ],
+    dateModified: post.date,
+    author: { "@type": "Person", name: post.author },
+    publisher: { "@id": ORG_ID },
+    mainEntityOfPage: `${site.url}/blog/${post.slug}`,
+    articleSection: post.category,
+    inLanguage: "en",
   };
 
   return (
     <>
-      <Header />
-      <main>
-        <PageHero
-          eyebrow={post.category}
-          eyebrowIndex="—"
-          title={post.title}
-          description={post.excerpt}
+      <JsonLd data={articleSchema} />
+      <JsonLd
+        data={breadcrumbs(site.url, [
+          ["Home", "/"],
+          ["Blog", "/blog"],
+          [post.title, null],
+        ])}
+      />
+      {/* Article header */}
+      <section className="relative overflow-hidden bg-white px-5 pb-12 pt-16 sm:px-8 sm:pb-16 sm:pt-24">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-0 h-[320px] w-[760px] max-w-[110vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#e23a2e]/10 blur-[140px]"
         />
-
-        <div className={styles.coverWrap}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={post.cover}
-            alt={post.coverAlt || post.title}
-            className={styles.coverImg}
-            loading="eager"
-          />
+        <div className="relative mx-auto max-w-3xl">
+          <p className="font-body text-[13px] font-semibold uppercase tracking-[0.16em] text-[#c02a20]">
+            {post.category}
+          </p>
+          <h1 className="mt-4 text-[30px] font-semibold leading-[1.15] tracking-tight text-neutral-900 sm:text-[42px]">
+            {post.title}
+          </h1>
+          <p className="mt-5 font-body text-[15px] leading-relaxed text-neutral-500 sm:text-[16px]">
+            {post.excerpt}
+          </p>
+          <p className="mt-6 border-t border-neutral-100 pt-6 font-body text-[13px] text-neutral-400">
+            By <span className="font-medium text-neutral-700">{post.author}</span>
+            <span className="mx-2" aria-hidden="true">
+              ·
+            </span>
+            {post.dateLabel}
+            <span className="mx-2" aria-hidden="true">
+              ·
+            </span>
+            {post.readTime}
+          </p>
         </div>
+      </section>
 
-        <article className={styles.section}>
-          <div className={styles.meta}>
-            <span className={styles.metaItem}>
-              <span className={styles.metaLabel}>By</span>
-              <span className={styles.metaValue}>{post.author}</span>
-            </span>
-            <span className={styles.dot} aria-hidden="true" />
-            <span className={styles.metaItem}>
-              <span className={styles.metaValue}>{post.date}</span>
-            </span>
-            <span className={styles.dot} aria-hidden="true" />
-            <span className={styles.metaItem}>
-              <span className={styles.metaValue}>{post.readingTime}</span>
-            </span>
-          </div>
-
-          <div className={styles.body}>
-            {post.content.map((block, i) => (
-              <section key={i} className={styles.block}>
-                <h2 className={styles.blockTitle}>{block.heading}</h2>
-                {block.body.map((p, j) => (
-                  <p key={j} className={styles.blockBody}>
-                    {p}
-                  </p>
-                ))}
-              </section>
+      {/* Article body */}
+      <section className="bg-white px-5 pb-24 sm:px-8 sm:pb-32">
+        <div className="mx-auto max-w-3xl">
+          <div className="space-y-12">
+            {post.sections.map((section) => (
+              <div key={section.heading}>
+                <h2 className="text-[21px] font-semibold tracking-tight text-neutral-900 sm:text-[24px]">
+                  {section.heading}
+                </h2>
+                <div className="mt-4 space-y-4">
+                  {section.paragraphs.map((paragraph) => (
+                    <p
+                      key={paragraph.slice(0, 32)}
+                      className="font-body text-[15px] leading-[1.8] text-neutral-600 sm:text-[16px]"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className={styles.footerBar}>
-            <Link href="/blog" className={styles.back}>
-              <span aria-hidden="true" className={styles.arrow}>&larr;</span>
+          <div className="mt-16 border-t border-neutral-100 pt-8">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 font-display text-[14px] font-semibold text-neutral-900 transition-colors hover:text-[#c02a20]"
+            >
+              <span aria-hidden="true">←</span>
               All posts
             </Link>
-            <span className={styles.share}>Share this article</span>
           </div>
+        </div>
+      </section>
 
-          {related.length > 0 && (
-            <div className={styles.related}>
-              <span className={styles.relatedLabel}>Keep reading</span>
-              <div className={styles.relatedGrid}>
-                {related.map((p) => (
-                  <Link
-                    key={p.slug}
-                    href={`/blog/${p.slug}`}
-                    className={styles.relatedCard}
-                  >
-                    <div className={styles.relatedMedia}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={p.cover}
-                        alt={p.coverAlt || p.title}
-                        className={styles.relatedImg}
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className={styles.relatedBody}>
-                      <div className={styles.relatedMeta}>
-                        <span className={styles.relatedCategory}>{p.category}</span>
-                        <span className={styles.dot} aria-hidden="true" />
-                        <span>{p.date}</span>
-                      </div>
-                      <h3 className={styles.relatedTitle}>{p.title}</h3>
-                      <p className={styles.relatedExcerpt}>{p.excerpt}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-        </article>
-      </main>
-      <Footer />
-      <JsonLd data={articleLd} />
-      <JsonLd data={breadcrumbLd} />
+      {/* Keep reading */}
+      <section className="border-t border-neutral-100 bg-neutral-50 px-5 py-20 sm:px-8 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-[22px] font-semibold tracking-tight text-neutral-900">
+            Keep reading
+          </h2>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            {others.map((other) => (
+              <Link
+                key={other.slug}
+                href={`/blog/${other.slug}`}
+                className="group rounded-2xl border border-neutral-200 bg-white p-7 transition-colors hover:border-[#e23a2e]/50"
+              >
+                <p className="font-body text-[12px] text-neutral-400">
+                  <span className="font-semibold uppercase tracking-[0.12em] text-[#c02a20]">
+                    {other.category}
+                  </span>
+                  <span className="mx-2" aria-hidden="true">
+                    ·
+                  </span>
+                  {other.dateLabel}
+                </p>
+                <h3 className="mt-3 text-[17px] font-semibold leading-snug text-neutral-900 transition-colors group-hover:text-[#c02a20]">
+                  {other.title}
+                </h3>
+                <p className="mt-2.5 font-body text-[13.5px] leading-relaxed text-neutral-500">
+                  {other.excerpt}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CTA />
     </>
   );
 }
