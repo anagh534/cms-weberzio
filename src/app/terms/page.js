@@ -142,9 +142,9 @@ export default function TermsPage() {
         </p>
       </PageHeader>
 
-      <section className="bg-white px-5 py-13 sm:px-8 sm:py-32">
+      <section className="bg-white px-5 pb-13 pt-5 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-14 lg:grid-cols-[260px_1fr] lg:gap-20">
+          <div className="grid gap-12 sm:gap-14 lg:grid-cols-[260px_1fr] lg:gap-20">
             {/* Contents */}
             <nav
               aria-label="Contents"

@@ -96,7 +96,7 @@ export default function ContactPage() {
         intro="Tell us what you're building and we'll get back to you within one business day with next steps."
       >
         {/* Sets expectations before the form, so the ask feels low-risk. */}
-        <ul className="mt-9 flex flex-wrap gap-x-8 gap-y-3">
+        <ul className="mt-5 sm:mt-9 flex flex-wrap gap-x-8 gap-y-3">
           {assurances.map((item) => (
             <li
               key={item}
@@ -124,7 +124,7 @@ export default function ContactPage() {
       <section className="bg-neutral-100 px-5 py-13 sm:px-8 sm:py-32">
         <div className="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[1.35fr_1fr]">
           {/* Form card — raised off the tinted field, matching the service cards. */}
-          <div className="rounded-[20px] sm:rounded-[26px] bg-white p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_14px_36px_-14px_rgba(0,0,0,0.13)] sm:p-10">
+          <div className="rounded-[20px] sm:rounded-[26px] bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_14px_36px_-14px_rgba(0,0,0,0.13)] sm:p-10">
             <h2 className="text-[22px] font-semibold tracking-tight text-neutral-800">
               Send us a message
             </h2>

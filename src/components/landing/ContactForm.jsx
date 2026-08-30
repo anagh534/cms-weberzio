@@ -16,7 +16,7 @@ const budgets = [
 const MESSAGE_LIMIT = 5000;
 
 const fieldClass =
-  "w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 font-body text-[14.5px] text-neutral-900 placeholder:text-neutral-400 outline-none transition-[border-color,box-shadow,background-color] focus:border-[#e23a2e] focus:bg-white focus:ring-4 focus:ring-[#e23a2e]/12";
+  "w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3 font-body text-[14.5px] text-neutral-900 placeholder:text-neutral-400 outline-none transition-[border-color,box-shadow,background-color] focus:border-[#e23a2e] focus:bg-white focus:ring-4 focus:ring-[#e23a2e]/12";
 
 const labelClass =
   "mb-2 block font-body text-[13px] font-medium text-neutral-700";

@@ -75,7 +75,7 @@ export default async function ServicePage({ params }) {
         </div>
       </PageHeader>
 
-      <section className="bg-white px-5 py-13 sm:px-8 sm:py-32">
+      <section className="bg-white px-5 pb-13 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <p className="max-w-3xl font-body text-[15px] leading-relaxed text-neutral-600 sm:text-[17px]">
             {service.body}

@@ -21,7 +21,7 @@ export default function WorkPage() {
         intro="A collection of web and mobile applications, SaaS platforms, and digital experiences we've crafted."
       />
 
-      <section className="bg-white px-5 py-12 sm:px-8 sm:py-32">
+      <section className="bg-white px-5 pb-12 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <ProjectList />
         </div>

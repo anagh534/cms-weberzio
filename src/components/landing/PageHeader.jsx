@@ -36,7 +36,7 @@ export default function PageHeader({ eyebrow, title, intro, children }) {
   return (
     <section
       ref={root}
-      className="relative overflow-hidden bg-white px-5 pb-0 pt-16 sm:px-8 sm:pb-20 sm:pt-24"
+      className="relative overflow-hidden bg-white px-5 pb-10 pt-16 sm:px-8 sm:pb-20 sm:pt-24"
     >
       <div
         data-hero-glow
