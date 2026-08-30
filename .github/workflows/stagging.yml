@@ -1,27 +1,25 @@
 name: Deploy Next.js to Staging Server
-    
-    on:
-      push:
-        branches: ["stagging"] 
-      workflow_dispatch:
-    
-    jobs:
-      deploy:
-        runs-on: ubuntu-latest
-          - name: Deploy to Server via SSH
-        steps:
-            uses: appleboy/ssh-action@v1.0.3
-            with:
-              host: ${{ secrets.STAGING_SERVER_HOST }}
-              username: ${{ secrets.STAGING_SERVER_USER }}
-              key: ${{ secrets.STAGING_SERVER_PASSWORD }}
-              port: 22 
-              script: |
-                # Navigate to your project folder on the server
-                cd /cms-weberzio
-                
-                # Pull the latest code from the stagging branch
-                git pull origin stagging
-                
-                # Build the Next.js application
-                npm run build
+
+on:
+  push:
+    branches: ["stagging"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.STAGING_SERVER_HOST }}
+          username: ${{ secrets.STAGING_SERVER_USER }}
+          password: ${{ secrets.STAGING_SERVER_PASSWORD }}
+          port: 22
+          script: |
+            # Navigate to the correct project folder
+            cd /var/www/cms-weberzio
+            
+            git pull origin stagging
+            npm install
+            npm run build
