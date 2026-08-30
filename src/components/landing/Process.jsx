@@ -43,7 +43,7 @@ export default function Process({
           <p className="font-body text-[13px] uppercase tracking-[0.18em] text-[#e23a2e]">
             How we work
           </p>
-          <h2 className="mt-4 text-[32px] font-semibold leading-tight tracking-tight text-neutral-800 sm:text-[46px]">
+          <h2 className="mt-3 sm:mt-4 text-[32px] font-semibold leading-tight tracking-tight text-neutral-800 sm:text-[46px]">
             {title}
           </h2>
           <p className="mt-5 font-body text-[15px] leading-relaxed text-neutral-500 sm:text-[16px]">

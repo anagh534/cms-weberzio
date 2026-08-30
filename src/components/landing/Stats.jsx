@@ -122,15 +122,15 @@ export default function Stats() {
     <section
       id="about"
       ref={root}
-      className="scroll-mt-16 bg-white px-5 py-24 sm:px-8 sm:py-32"
+      className="scroll-mt-16 bg-white px-5 pt-22 pb-10 sm:px-8 sm:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div className="grid gap-3 sm:gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div data-heading>
             <p className="font-body text-[13px] uppercase tracking-[0.18em] text-[#e23a2e]">
               Why teams choose us
             </p>
-            <h2 className="mt-4 text-[34px] font-semibold leading-tight tracking-tight text-neutral-800 sm:text-[46px]">
+            <h2 className="mt-3 sm:mt-4 text-[34px] font-semibold leading-tight tracking-tight text-neutral-800 sm:text-[46px]">
               Engineering you
               <br />
               can measure
@@ -152,7 +152,7 @@ export default function Stats() {
           </div>
         </div>
 
-        <p className="mt-14 max-w-2xl font-body text-[15px] leading-relaxed text-neutral-500">
+        <p className="mt-9 sm:mt-14 max-w-2xl font-body text-[15px] leading-relaxed text-neutral-500">
           We help startups and enterprises turn ambitious ideas into
           production-ready software — from the first commit through years of
           scale.
@@ -185,7 +185,7 @@ export default function Stats() {
         </div>
 
         {/* Company facts sit below as a quieter spec strip. */}
-        <dl className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-200 lg:grid-cols-4">
+        <dl className="mt-7 sm:mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-200 lg:grid-cols-4">
           {companyFacts.map((fact) => (
             <div key={fact.label} data-fact className="bg-neutral-50 p-6">
               <dt className="font-body text-[12px] uppercase tracking-[0.16em] text-neutral-400">

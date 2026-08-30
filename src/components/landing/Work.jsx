@@ -102,7 +102,7 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="scroll-mt-16 bg-white px-5 py-24 sm:px-8 sm:py-32"
+      className="scroll-mt-16 bg-white px-5 pt-13 pb-9 sm:px-8 sm:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-wrap items-end justify-between gap-6">
@@ -110,7 +110,7 @@ export default function Work() {
             <p className="font-body text-[13px] uppercase tracking-[0.18em] text-[#e23a2e]">
               Case studies
             </p>
-            <h2 className="mt-4 text-[32px] font-semibold leading-tight tracking-tight text-neutral-800 sm:text-[46px]">
+            <h2 className="mt-3 sm:mt-4 text-[32px] font-semibold leading-tight tracking-tight text-neutral-800 sm:text-[46px]">
               Our work: from discovery to launch
             </h2>
           </div>
@@ -123,7 +123,7 @@ export default function Work() {
           </Link>
         </div>
 
-        <div className="mt-14">
+        <div className="mt-9 sm:mt-14">
           <ProjectList items={projects.slice(0, 3)} />
         </div>
       </div>

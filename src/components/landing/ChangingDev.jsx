@@ -685,7 +685,7 @@ export default function ChangingDev() {
             <span className="h-1.5 w-1.5 rounded-full bg-[#e23a2e]" />
             Our process
           </span>
-          <h2 className="mt-4 text-[30px] font-semibold leading-tight tracking-tight sm:text-[42px]">
+          <h2 className="mt-4 mb-3 sm:mb-0 text-[30px] font-semibold leading-tight tracking-tight sm:text-[42px]">
             <span className="text-[#e23a2e]">How We</span>
             <br />
             <span className="text-neutral-700">Build Software</span>

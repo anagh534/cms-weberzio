@@ -42,7 +42,7 @@ export default function CTA() {
     <section
       id="cta"
       ref={root}
-      className="relative overflow-hidden bg-black px-5 py-28 sm:px-8 sm:py-36"
+      className="relative overflow-hidden bg-black px-5 py-21 sm:px-8 sm:py-36"
     >
       <div
         data-cta-glow

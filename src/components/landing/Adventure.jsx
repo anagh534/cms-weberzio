@@ -160,7 +160,7 @@ export default function Adventure() {
     <section
       id="adventure"
       ref={root}
-      className="scroll-mt-16 bg-white px-5 py-24 sm:px-8 sm:py-32"
+      className="scroll-mt-16 bg-white px-5 pt-8 pb-13 sm:px-8 sm:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <h2
@@ -177,7 +177,7 @@ export default function Adventure() {
           build software that solves real problems
         </p>
 
-        <div className="relative mt-14 grid gap-6 lg:grid-cols-2">
+        <div className="relative mt-9 sm:mt-14 grid gap-6 lg:grid-cols-2">
           {/* "or" pivot sitting on the seam between the two paths. */}
           <span
             aria-hidden="true"

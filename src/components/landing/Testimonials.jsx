@@ -33,14 +33,14 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="scroll-mt-16 overflow-hidden bg-white px-5 py-24 sm:px-8 sm:py-32"
+      className="scroll-mt-16 overflow-hidden bg-white px-5 pt-9 pb-9 sm:px-8 sm:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <div className="max-w-2xl">
           <p className="font-body text-[13px] uppercase tracking-[0.18em] text-[#e23a2e]">
             Testimonials
           </p>
-          <h2 className="mt-4 text-[32px] font-semibold leading-tight tracking-tight text-neutral-800 sm:text-[46px]">
+          <h2 className="mt-3 sm:mt-4 text-[32px] font-semibold leading-tight tracking-tight text-neutral-800 sm:text-[46px]">
             What our clients
             <br />
             are saying.

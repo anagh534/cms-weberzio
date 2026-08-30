@@ -42,7 +42,7 @@ export function ServiceCards() {
           key={service.slug}
           data-service
           href={`/services/${service.slug}`}
-          className="group relative flex flex-col overflow-hidden rounded-[26px] bg-white p-8 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_14px_36px_-14px_rgba(0,0,0,0.13)] transition-shadow duration-300 hover:shadow-[0_1px_2px_rgba(0,0,0,0.05),0_26px_56px_-18px_rgba(0,0,0,0.24)]"
+          className="group relative flex flex-col overflow-hidden rounded-[20px] sm:rounded-[26px] bg-white p-5 sm:p-8 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_14px_36px_-14px_rgba(0,0,0,0.13)] transition-shadow duration-300 hover:shadow-[0_1px_2px_rgba(0,0,0,0.05),0_26px_56px_-18px_rgba(0,0,0,0.24)]"
         >
           {/* Brand hairline sweeps across the top edge on hover. */}
           <span
@@ -110,14 +110,14 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="scroll-mt-16 bg-neutral-100 px-5 py-24 sm:px-8 sm:py-32"
+      className="scroll-mt-16 bg-neutral-100 px-5 pt-13 pb-13 sm:px-8 sm:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <div className="max-w-2xl">
           <p className="font-body text-[13px] uppercase tracking-[0.18em] text-[#e23a2e]">
             Services
           </p>
-          <h2 className="mt-4 text-[32px] font-semibold leading-tight tracking-tight text-neutral-800 sm:text-[46px]">
+          <h2 className="mt-3 sm:mt-4 text-[32px] font-semibold leading-tight tracking-tight text-neutral-800 sm:text-[46px]">
             End-to-end engineering, done well
           </h2>
           <p className="mt-5 font-body text-[15px] leading-relaxed text-neutral-500 sm:text-[16px]">
@@ -127,7 +127,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-14">
+        <div className="mt-9 sm:mt-14">
           <ServiceCards />
         </div>
       </div>
