@@ -2,6 +2,7 @@ import { site } from "@/data/site";
 import { services } from "@/data/services";
 import { caseStudies } from "@/data/casestudies";
 import { posts } from "@/data/posts";
+export const dynamic = "force-static";
 
 export default function sitemap() {
   const routes = [
