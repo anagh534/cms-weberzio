@@ -37,7 +37,7 @@ export default function Process({
   }, []);
 
   return (
-    <section ref={root} className="bg-white px-5 py-24 sm:px-8 sm:py-32">
+    <section ref={root} className="bg-white px-5 py-16 sm:px-8 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-2xl">
           <p className="font-body text-[13px] uppercase tracking-[0.18em] text-[#e23a2e]">

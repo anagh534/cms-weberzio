@@ -19,7 +19,7 @@ export default function ServicesPage() {
         intro="Web applications, SaaS platforms, APIs, cloud infrastructure, and the technical guidance to keep it all moving forward."
       />
 
-      <section className="bg-neutral-100 px-5 py-24 sm:px-8 sm:py-32">
+      <section className="bg-neutral-100 px-5 py-16 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 max-w-2xl">
             <p className="font-body text-[12px] uppercase tracking-[0.16em] text-neutral-400">

@@ -38,7 +38,7 @@ export default function AboutPage() {
       />
 
       {/* Who we are + stats */}
-      <section className="bg-white px-5 py-24 sm:px-8 sm:py-32">
+      <section className="bg-white px-5 py-13 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_320px] lg:gap-20">
             <div>
@@ -72,18 +72,18 @@ export default function AboutPage() {
       </section>
 
       {/* Principles */}
-      <section className="border-t border-neutral-100 bg-neutral-50 px-5 py-24 sm:px-8 sm:py-32">
+      <section className="border-t border-neutral-100 bg-neutral-50 px-5 py-13 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <SectionLabel>Principles</SectionLabel>
           <h2 className="mt-4 max-w-2xl text-[28px] font-semibold leading-tight tracking-tight text-neutral-900 sm:text-[36px]">
             How we think about the work.
           </h2>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2">
+          <div className="mt-9 sm:mt-14 grid gap-6 sm:grid-cols-2">
             {principles.map((principle) => (
               <div
                 key={principle.number}
-                className="rounded-2xl border border-neutral-200 bg-white p-7"
+                className="rounded-2xl border border-neutral-200 bg-white p-5 sm:p-7"
               >
                 <p className="font-body text-[13px] font-semibold text-[#e23a2e]">
                   {principle.number}
@@ -101,14 +101,14 @@ export default function AboutPage() {
       </section>
 
       {/* Process */}
-      <section className="bg-white px-5 py-24 sm:px-8 sm:py-32">
+      <section className="bg-white px-5 py-13 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <SectionLabel>Process</SectionLabel>
           <h2 className="mt-4 max-w-2xl text-[28px] font-semibold leading-tight tracking-tight text-neutral-900 sm:text-[36px]">
             From first call to production.
           </h2>
 
-          <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-9 sm:mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {aboutProcess.map((step, index) => (
               <div key={step.number} className="relative">
                 <div className="flex items-center gap-3">
@@ -135,7 +135,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stack */}
-      <section className="border-t border-neutral-100 bg-neutral-50 px-5 py-24 sm:px-8 sm:py-32">
+      <section className="border-t border-neutral-100 bg-neutral-50 px-5 py-13 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <SectionLabel>Stack</SectionLabel>
           <h2 className="mt-4 max-w-2xl text-[28px] font-semibold leading-tight tracking-tight text-neutral-900 sm:text-[36px]">
@@ -163,14 +163,14 @@ export default function AboutPage() {
       </section>
 
       {/* Services summary */}
-      <section className="bg-white px-5 py-24 sm:px-8 sm:py-32">
+      <section className="bg-white px-5 py-13 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <SectionLabel>What we do</SectionLabel>
           <h2 className="mt-4 max-w-2xl text-[28px] font-semibold leading-tight tracking-tight text-neutral-900 sm:text-[36px]">
             Services we deliver end to end.
           </h2>
 
-          <div className="mt-14 space-y-0 border-t border-neutral-200">
+          <div className="mt-9 sm:mt-14 space-y-0 border-t border-neutral-200">
             {services.map((service) => (
               <Link
                 key={service.slug}
@@ -188,7 +188,7 @@ export default function AboutPage() {
           </div>
 
           {/* Inline CTA band */}
-          <div className="mt-20 rounded-2xl border border-neutral-200 bg-neutral-50 p-8 sm:flex sm:items-center sm:justify-between sm:p-10">
+          <div className="mt-12 sm:mt-20 rounded-2xl border border-neutral-200 bg-neutral-50 p-8 sm:flex sm:items-center sm:justify-between sm:p-10">
             <div>
               <h3 className="text-[22px] font-semibold tracking-tight text-neutral-900">
                 {aboutCta.title}

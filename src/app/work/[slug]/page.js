@@ -67,7 +67,7 @@ export default async function CaseStudyPage({ params }) {
         intro={study.category}
       />
 
-      <section className="bg-white px-5 py-24 sm:px-8 sm:py-32">
+      <section className="bg-white px-5 py-13 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-14 lg:grid-cols-[1fr_300px] lg:gap-20">
             <div>

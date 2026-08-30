@@ -138,7 +138,7 @@ export default async function BlogPostPage({ params }) {
               <Link
                 key={other.slug}
                 href={`/blog/${other.slug}`}
-                className="group rounded-2xl border border-neutral-200 bg-white p-7 transition-colors hover:border-[#e23a2e]/50"
+                className="group rounded-2xl border border-neutral-200 bg-white p-5 sm:p-7 transition-colors hover:border-[#e23a2e]/50"
               >
                 <p className="font-body text-[12px] text-neutral-400">
                   <span className="font-semibold uppercase tracking-[0.12em] text-[#c02a20]">

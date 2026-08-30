@@ -47,12 +47,12 @@ export default function BlogPage() {
         </p>
       </PageHeader>
 
-      <section className="bg-white px-5 py-24 sm:px-8 sm:py-32">
+      <section className="bg-white px-5 py-13 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           {/* Featured post */}
           <Link
             href={`/blog/${featured.slug}`}
-            className="group block rounded-2xl border border-neutral-200 bg-neutral-50 p-8 transition-colors hover:border-[#e23a2e]/50 hover:bg-white sm:p-12"
+            className="group block rounded-2xl border border-neutral-200 bg-neutral-50 p-5 transition-colors hover:border-[#e23a2e]/50 hover:bg-white sm:p-12"
           >
             <p className="font-body text-[11px] font-semibold uppercase tracking-[0.16em] text-neutral-400">
               Featured
@@ -81,7 +81,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group flex flex-col rounded-2xl border border-neutral-200 p-8 transition-colors hover:border-[#e23a2e]/50 hover:bg-neutral-50"
+                className="group flex flex-col rounded-2xl border border-neutral-200 p-5 transition-colors hover:border-[#e23a2e]/50 hover:bg-neutral-50"
               >
                 <PostMeta post={post} />
                 <h3 className="mt-4 text-[20px] font-semibold leading-snug tracking-tight text-neutral-900 transition-colors group-hover:text-[#c02a20]">

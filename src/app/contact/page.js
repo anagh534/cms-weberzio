@@ -121,10 +121,10 @@ export default function ContactPage() {
         </ul>
       </PageHeader>
 
-      <section className="bg-neutral-100 px-5 py-24 sm:px-8 sm:py-32">
+      <section className="bg-neutral-100 px-5 py-13 sm:px-8 sm:py-32">
         <div className="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[1.35fr_1fr]">
           {/* Form card — raised off the tinted field, matching the service cards. */}
-          <div className="rounded-[26px] bg-white p-8 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_14px_36px_-14px_rgba(0,0,0,0.13)] sm:p-10">
+          <div className="rounded-[20px] sm:rounded-[26px] bg-white p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_14px_36px_-14px_rgba(0,0,0,0.13)] sm:p-10">
             <h2 className="text-[22px] font-semibold tracking-tight text-neutral-800">
               Send us a message
             </h2>
@@ -139,7 +139,7 @@ export default function ContactPage() {
           </div>
 
           {/* Balances the taller sidebar and answers the usual pre-brief doubts. */}
-          <div className="rounded-[26px] border border-neutral-200 p-8 lg:col-start-1 lg:row-start-2">
+          <div className="rounded-[20px] sm:rounded-[26px] border border-neutral-200 p-5 lg:col-start-1 lg:row-start-2 sm:p-8">
             <p className="font-body text-[12px] uppercase tracking-[0.16em] text-neutral-400">
               Before you write
             </p>
@@ -160,12 +160,12 @@ export default function ContactPage() {
           {/* Spans both rows so the sidebar sits alongside form and notes. */}
           <div className="space-y-8 lg:col-start-2 lg:row-span-2 lg:row-start-1">
             {/* Direct channels, each with an icon tile. */}
-            <div className="rounded-[26px] bg-white p-8 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_14px_36px_-14px_rgba(0,0,0,0.13)]">
+            <div className="rounded-[20px] sm:rounded-[26px] bg-white p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_14px_36px_-14px_rgba(0,0,0,0.13)]">
               <p className="font-body text-[12px] uppercase tracking-[0.16em] text-neutral-400">
                 Get in touch
               </p>
 
-              <ul className="mt-6 space-y-2">
+              <ul className="mt-1 sm:mt-6 space-y-2">
                 {details.map((item) => {
                   const external = item.href.startsWith("http");
 
@@ -197,7 +197,7 @@ export default function ContactPage() {
             </div>
 
             {/* Dark panel anchors the column and echoes the site's hero. */}
-            <div className="rounded-[26px] bg-neutral-900 p-8 text-white">
+            <div className="rounded-[20px] sm:rounded-[26px] bg-neutral-900 p-5 sm:p-8 text-white">
               <p className="font-body text-[12px] uppercase tracking-[0.16em] text-white/40">
                 What happens next
               </p>

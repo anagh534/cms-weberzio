@@ -21,14 +21,14 @@ export default function WorkPage() {
         intro="A collection of web and mobile applications, SaaS platforms, and digital experiences we've crafted."
       />
 
-      <section className="bg-white px-5 py-24 sm:px-8 sm:py-32">
+      <section className="bg-white px-5 py-12 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <ProjectList />
         </div>
       </section>
 
       {/* In-depth case studies */}
-      <section className="border-t border-neutral-100 bg-neutral-50 px-5 py-24 sm:px-8 sm:py-32">
+      <section className="border-t border-neutral-100 bg-neutral-50 px-5 py-16 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <p className="font-body text-[12px] uppercase tracking-[0.16em] text-neutral-400">
             Case studies
@@ -37,7 +37,7 @@ export default function WorkPage() {
             Selected engagements, in depth.
           </h2>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="mt-9 sm:mt-14 grid gap-6 lg:grid-cols-3">
             {caseStudies.map((study) => (
               <Link
                 key={study.slug}
