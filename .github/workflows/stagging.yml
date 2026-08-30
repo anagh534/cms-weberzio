@@ -2,7 +2,7 @@ name: Deploy Next.js to Staging Server
 
 on:
   push:
-    branches: ["stagging"]
+    branches: ["staging"]
   workflow_dispatch:
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
             cd /var/www/cms-weberzio
             
             # Pull the latest code
-            git pull origin stagging
+            git pull origin staging
             
             # Install dependencies and build
             npm install
