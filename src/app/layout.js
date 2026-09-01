@@ -78,7 +78,7 @@ const organizationSchema = {
         contactType: "sales",
         email: contact.email,
         telephone: contact.phone,
-        availableLanguage: ["English"],
+        availableLanguage: ["English", "Malayalam", "Tamil", "Hindi"],
       },
     },
     {
