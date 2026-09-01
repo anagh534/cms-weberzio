@@ -1,3 +1,3 @@
-[[services]]
-binding = "WORKER_SELF_REFERENCE"
-service = "staging-weberzio"
+name = "my-nextjs-staging"
+pages_build_output_dir = "out"
+compatibility_date = "2026-09-01"
