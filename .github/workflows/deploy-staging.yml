@@ -1,4 +1,4 @@
-name: Deploy Staging to Cloudflare Pages
+name: Deploy Staging
 
 on:
   push:
@@ -8,26 +8,16 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '24'
-          cache: 'npm'
 
-      - name: Install Dependencies
-        run: npm ci
+      - run: npm ci
+      - run: npx next build
 
-      - name: Build Next.js Static Export
-        run: npx next build
-
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v4
+      - uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
