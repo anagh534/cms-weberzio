@@ -49,6 +49,9 @@ export default function ContactForm({ tagIndex = "02" }) {
             one business day.
           </p>
 
+          <a href="tel:+918281571805" className={styles.emailLink}>
+            +91 82815 71805
+          </a>
           <a href="mailto:support@weberzio.in" className={styles.emailLink}>
             support@weberzio.in
           </a>
@@ -60,7 +63,9 @@ export default function ContactForm({ tagIndex = "02" }) {
             </li>
             <li>
               <span className={styles.detailLabel}>Working with</span>
-              <span className={styles.detailValue}>Founders, product teams</span>
+              <span className={styles.detailValue}>
+                Founders, product teams
+              </span>
             </li>
             <li>
               <span className={styles.detailLabel}>Timezone</span>
@@ -119,7 +124,9 @@ export default function ContactForm({ tagIndex = "02" }) {
                 >
                   <option value="">Choose a range</option>
                   {BUDGETS.map((b) => (
-                    <option key={b} value={b}>{b}</option>
+                    <option key={b} value={b}>
+                      {b}
+                    </option>
                   ))}
                 </select>
                 <span className={styles.selectArrow} aria-hidden="true" />
@@ -138,16 +145,11 @@ export default function ContactForm({ tagIndex = "02" }) {
               required
               maxLength={5000}
             />
-            <span className={styles.counter}>
-              {form.message.length} / 5000
-            </span>
+            <span className={styles.counter}>{form.message.length} / 5000</span>
           </label>
 
           <div className={styles.actions}>
-            <button
-              type="submit"
-              className={styles.submit}
-            >
+            <button type="submit" className={styles.submit}>
               <span>Send message</span>
               <span className={styles.submitArrow} aria-hidden="true" />
             </button>
