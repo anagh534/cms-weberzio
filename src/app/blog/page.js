@@ -2,14 +2,17 @@ import Link from "next/link";
 
 import PageHeader from "@/components/landing/PageHeader";
 import CTA from "@/components/landing/CTA";
+import JsonLd, { breadcrumbs } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
 import { posts } from "@/data/posts";
+import { site } from "@/data/site";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Web Development Blog & Engineering Insights",
   description:
     "Writing on how we build, design, and ship software at Weberzio.",
-  alternates: { canonical: "/blog" },
-};
+  path: "/blog",
+});
 
 function PostMeta({ post, className = "" }) {
   return (
@@ -34,6 +37,12 @@ export default function BlogPage() {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbs(site.url, [
+          ["Home", "/"],
+          ["Blog", null],
+        ])}
+      />
       <PageHeader
         eyebrow="Journal"
         title="Web development notes from the workshop."

@@ -3,18 +3,27 @@ import Link from "next/link";
 import PageHeader from "@/components/landing/PageHeader";
 import { ProjectList } from "@/components/landing/Work";
 import CTA from "@/components/landing/CTA";
+import JsonLd, { breadcrumbs } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
 import { caseStudies } from "@/data/casestudies";
+import { site } from "@/data/site";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Our Work — Web & Mobile App Development Portfolio",
   description:
     "A collection of web and mobile applications, SaaS platforms, and digital experiences we've crafted.",
-  alternates: { canonical: "/work" },
-};
+  path: "/work",
+});
 
 export default function WorkPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbs(site.url, [
+          ["Home", "/"],
+          ["Work", null],
+        ])}
+      />
       <PageHeader
         eyebrow="Portfolio"
         title="Web & mobile app development portfolio."

@@ -5,6 +5,7 @@ import PageHeader from "@/components/landing/PageHeader";
 import Process from "@/components/landing/Process";
 import CTA from "@/components/landing/CTA";
 import JsonLd, { ORG_ID, breadcrumbs } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
 import { services, getService } from "@/data/services";
 import { site } from "@/data/site";
 
@@ -18,15 +19,11 @@ export async function generateMetadata({ params }) {
 
   if (!service) return {};
 
-  return {
+  return buildPageMetadata({
     title: `${service.title} in Kerala`,
     description: service.tagline,
-    alternates: { canonical: `/services/${service.slug}` },
-    openGraph: {
-      title: `${service.title} in Kerala`,
-      description: service.tagline,
-    },
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServicePage({ params }) {

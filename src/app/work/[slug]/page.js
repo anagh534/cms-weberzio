@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PageHeader from "@/components/landing/PageHeader";
 import CTA from "@/components/landing/CTA";
 import JsonLd, { ORG_ID, breadcrumbs } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
 import { caseStudies, getCaseStudy } from "@/data/casestudies";
 import { site } from "@/data/site";
 
@@ -17,15 +18,11 @@ export async function generateMetadata({ params }) {
 
   if (!study) return {};
 
-  return {
+  return buildPageMetadata({
     title: `${study.name} | Case Study`,
     description: study.description[0],
-    alternates: { canonical: `/work/${study.slug}` },
-    openGraph: {
-      title: `${study.name} | Case Study`,
-      description: study.description[0],
-    },
-  };
+    path: `/work/${study.slug}`,
+  });
 }
 
 export default async function CaseStudyPage({ params }) {

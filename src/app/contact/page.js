@@ -2,14 +2,16 @@ import PageHeader from "@/components/landing/PageHeader";
 import ContactForm from "@/components/landing/ContactForm";
 import ContactIcon from "@/components/landing/ContactIcon";
 import CTA from "@/components/landing/CTA";
-import { contact } from "@/data/site";
+import JsonLd, { breadcrumbs } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
+import { contact, site } from "@/data/site";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Contact Us — Software Development Company in Kerala",
   description:
     "Tell us what you're building and we'll get back to you within one business day with next steps.",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 const details = [
   {
@@ -90,6 +92,12 @@ const nextSteps = [
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbs(site.url, [
+          ["Home", "/"],
+          ["Contact", null],
+        ])}
+      />
       <PageHeader
         eyebrow="Contact"
         title="Let's talk about your project."

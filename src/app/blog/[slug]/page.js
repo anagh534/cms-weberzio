@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import CTA from "@/components/landing/CTA";
 import JsonLd, { ORG_ID, breadcrumbs } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
 import { posts, getPost } from "@/data/posts";
 import { site } from "@/data/site";
 
@@ -16,18 +17,16 @@ export async function generateMetadata({ params }) {
 
   if (!post) return {};
 
-  return {
+  return buildPageMetadata({
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
+    path: `/blog/${post.slug}`,
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
     },
-  };
+  });
 }
 
 export default async function BlogPostPage({ params }) {
@@ -43,6 +42,7 @@ export default async function BlogPostPage({ params }) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
+    image: `${site.url}/og.png`,
     datePublished: post.date,
     dateModified: post.date,
     author: { "@type": "Person", name: post.author },

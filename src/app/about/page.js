@@ -2,6 +2,9 @@ import Link from "next/link";
 
 import PageHeader from "@/components/landing/PageHeader";
 import CTA from "@/components/landing/CTA";
+import JsonLd, { breadcrumbs } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
+import { site } from "@/data/site";
 import {
   aboutIntro,
   whoWeAre,
@@ -13,11 +16,11 @@ import {
 } from "@/data/about";
 import { services } from "@/data/services";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "About Us — Web & Mobile App Development Agency in Kerala",
   description: aboutIntro.intro,
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 /** Uppercase section label used across the interior pages. */
 function SectionLabel({ children }) {
@@ -31,6 +34,12 @@ function SectionLabel({ children }) {
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbs(site.url, [
+          ["Home", "/"],
+          ["About", null],
+        ])}
+      />
       <PageHeader
         eyebrow={aboutIntro.eyebrow}
         title={aboutIntro.title}

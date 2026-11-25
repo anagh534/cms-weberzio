@@ -1,12 +1,14 @@
 import PageHeader from "@/components/landing/PageHeader";
 import CTA from "@/components/landing/CTA";
+import JsonLd, { breadcrumbs } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
 import { site } from "@/data/site";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Terms & Conditions",
   description: `The rules and legal terms that govern your use of the ${site.name} website and services.`,
-  alternates: { canonical: "/terms" },
-};
+  path: "/terms",
+});
 
 const LAST_UPDATED = "July 2026";
 
@@ -132,6 +134,12 @@ const clauses = [
 export default function TermsPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbs(site.url, [
+          ["Home", "/"],
+          ["Terms & Conditions", null],
+        ])}
+      />
       <PageHeader
         eyebrow="Legal"
         title="Terms and conditions."

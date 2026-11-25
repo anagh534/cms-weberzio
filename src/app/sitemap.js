@@ -5,6 +5,8 @@ import { posts } from "@/data/posts";
 export const dynamic = "force-static";
 
 export default function sitemap() {
+  const lastModified = new Date();
+
   const routes = [
     { path: "", priority: 1, changeFrequency: "weekly" },
     { path: "/services", priority: 0.9, changeFrequency: "monthly" },
@@ -15,18 +17,21 @@ export default function sitemap() {
     { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
   ].map(({ path, priority, changeFrequency }) => ({
     url: `${site.url}${path}`,
+    lastModified,
     changeFrequency,
     priority,
   }));
 
   const serviceRoutes = services.map((service) => ({
     url: `${site.url}/services/${service.slug}`,
+    lastModified,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
   const workRoutes = caseStudies.map((study) => ({
     url: `${site.url}/work/${study.slug}`,
+    lastModified,
     changeFrequency: "monthly",
     priority: 0.7,
   }));

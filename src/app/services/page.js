@@ -2,17 +2,26 @@ import PageHeader from "@/components/landing/PageHeader";
 import { ServiceCards } from "@/components/landing/Services";
 import Process from "@/components/landing/Process";
 import CTA from "@/components/landing/CTA";
+import JsonLd, { breadcrumbs } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
+import { site } from "@/data/site";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Web & Mobile App Development Services",
   description:
     "Web applications, SaaS platforms, APIs, cloud infrastructure, and the technical guidance to keep it all moving forward.",
-  alternates: { canonical: "/services" },
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbs(site.url, [
+          ["Home", "/"],
+          ["Services", null],
+        ])}
+      />
       <PageHeader
         eyebrow="Services"
         title="Software development services in Kerala."
